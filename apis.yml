@@ -1,0 +1,32 @@
+aid: fakerapi
+name: FakerAPI
+description: "APIs collection to get fake data"
+url: https://fakerapi.it/en
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Test Data"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Test Data
+  - Public APIs
+apis:
+  - name: FakerAPI
+    description: "APIs collection to get fake data"
+    humanURL: https://fakerapi.it/en
+    baseURL: https://fakerapi.it/en
+    tags:
+      - Test Data
+    properties:
+      - type: Documentation
+        url: https://fakerapi.it/en
+common:
+  - type: Website
+    url: https://fakerapi.it/en
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
