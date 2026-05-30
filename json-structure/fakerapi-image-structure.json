@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/image.json",
+  "name": "Image",
+  "description": "A fake image reference produced by FakerAPI /api/v1/images.",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "url": { "type": "uri" }
+  },
+  "required": ["url"]
+}

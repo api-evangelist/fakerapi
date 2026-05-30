@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/place.json",
+  "name": "Place",
+  "description": "A fake geographic coordinate pair produced by FakerAPI /api/v1/places.",
+  "type": "object",
+  "properties": {
+    "latitude": { "type": "double", "minimum": -90, "maximum": 90 },
+    "longitude": { "type": "double", "minimum": -180, "maximum": 180 }
+  },
+  "required": ["latitude", "longitude"]
+}

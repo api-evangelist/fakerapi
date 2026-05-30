@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/company.json",
+  "name": "Company",
+  "description": "A fake business / company record produced by FakerAPI /api/v1/companies.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "int32" },
+    "name": { "type": "string" },
+    "email": { "type": "string" },
+    "vat": { "type": "string" },
+    "phone": { "type": "string" },
+    "country": { "type": "string" },
+    "addresses": {
+      "type": "array",
+      "items": { "$ref": "fakerapi-address-structure.json" }
+    },
+    "website": { "type": "uri" },
+    "image": { "type": "uri" }
+  },
+  "required": ["id", "name", "email", "country"]
+}

@@ -1,0 +1,103 @@
+naftiko: "1.0.0-alpha2"
+
+info:
+  label: "FakerAPI — Custom"
+  description: >-
+    Custom — Custom. 1 operation. Lead operation: List Fake Custom Records.
+    Self-contained Naftiko capability covering the FakerAPI caller-defined
+    schema endpoint, where each extra query parameter is treated as a field
+    name whose value is a FakerAPI generator identifier.
+  tags:
+    - FakerAPI
+    - Test Data
+    - Custom
+  created: "2026-05-30"
+  modified: "2026-05-30"
+
+binds: []
+
+capability:
+
+  consumes:
+    - type: http
+      namespace: "fakerapi-custom"
+      baseUri: "https://fakerapi.it/api/v1"
+      description: "FakerAPI — Custom business capability. No authentication required."
+      resources:
+        - name: "custom"
+          path: "/custom"
+          operations:
+            - name: "listCustom"
+              method: GET
+              description: "Generate records using a caller-defined field schema. Each extra query parameter is treated as a field name whose value is a FakerAPI generator identifier."
+              inputParameters:
+                - name: "_quantity"
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Number of records (1-1000, default 10)."
+                - name: "_locale"
+                  in: query
+                  type: string
+                  required: false
+                  description: "Locale code."
+                - name: "_seed"
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Integer seed."
+                - name: "fields"
+                  in: query
+                  type: object
+                  required: false
+                  description: "Free-form field map (e.g. name=name, email=email, phone=phoneNumber)."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      namespace: "fakerapi-custom-rest"
+      port: 8080
+      description: "REST adapter for FakerAPI — Custom."
+      resources:
+        - path: "/v1/custom"
+          name: "custom"
+          description: "REST surface for fake custom-shaped records."
+          operations:
+            - method: GET
+              name: "listCustom"
+              description: "Generate records using a caller-defined field schema."
+              call: "fakerapi-custom.listCustom"
+              with:
+                "_quantity": "rest._quantity"
+                "_locale": "rest._locale"
+                "_seed": "rest._seed"
+                "fields": "rest.fields"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      namespace: "fakerapi-custom-mcp"
+      port: 9090
+      transport: http
+      description: "MCP adapter for FakerAPI — Custom."
+      tools:
+        - name: "list-fake-custom"
+          description: "Generate records using a caller-defined field schema."
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "fakerapi-custom.listCustom"
+          with:
+            "_quantity": "tools._quantity"
+            "_locale": "tools._locale"
+            "_seed": "tools._seed"
+            "fields": "tools.fields"
+          outputParameters:
+            - type: object
+              mapping: "$."

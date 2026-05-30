@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fakerapi.it/schemas/user.json",
+  "title": "User",
+  "description": "A fake application user account produced by FakerAPI /api/v1/users.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer", "example": 1 },
+    "uuid": { "type": "string", "format": "uuid", "example": "e36e99b7-9bc4-3318-8ab5-98c34f6d4cd6" },
+    "firstname": { "type": "string", "example": "Urban" },
+    "lastname": { "type": "string", "example": "Donnelly" },
+    "username": { "type": "string", "example": "ctreutel" },
+    "password": { "type": "string", "description": "Generated password (random; not hashed).", "example": "nLxG^d;zF!gSAHFHl" },
+    "email": { "type": "string", "format": "email", "example": "rowena45@hotmail.com" },
+    "ip": { "type": "string", "description": "IPv4 address.", "example": "33.219.15.137" },
+    "macAddress": { "type": "string", "example": "34:CD:68:58:87:4B" },
+    "website": { "type": "string", "format": "uri", "example": "http://thiel.com" },
+    "image": { "type": "string", "format": "uri", "example": "http://placeimg.com/640/480/people" }
+  },
+  "required": ["id", "uuid", "username", "email"]
+}

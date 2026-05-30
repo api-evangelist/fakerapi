@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fakerapi.it/schemas/address.json",
+  "title": "Address",
+  "description": "A fake postal address with geographic coordinates produced by FakerAPI /api/v1/addresses.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer", "description": "Position of this address within the response collection.", "example": 1 },
+    "street": { "type": "string", "description": "Full street line.", "example": "4546 Willms Run" },
+    "streetName": { "type": "string", "description": "Street name without building number.", "example": "Trantow Creek" },
+    "buildingNumber": { "type": "string", "description": "Building / house number.", "example": "14316" },
+    "city": { "type": "string", "description": "City name.", "example": "South Christina" },
+    "zipcode": { "type": "string", "description": "Postal / ZIP code.", "example": "08745-4080" },
+    "country": { "type": "string", "description": "Country name.", "example": "Svalbard & Jan Mayen" },
+    "country_code": { "type": "string", "description": "ISO 3166-1 alpha-2 country code.", "minLength": 2, "maxLength": 2, "example": "SJ" },
+    "latitude": { "type": "number", "description": "Latitude in decimal degrees.", "minimum": -90, "maximum": 90, "example": 45.46427 },
+    "longitude": { "type": "number", "description": "Longitude in decimal degrees.", "minimum": -180, "maximum": 180, "example": 9.18951 }
+  },
+  "required": ["id", "street", "city", "country", "country_code", "latitude", "longitude"]
+}

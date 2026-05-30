@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fakerapi.it/schemas/image.json",
+  "title": "Image",
+  "description": "A fake image reference produced by FakerAPI /api/v1/images.",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string", "description": "Short image title.", "example": "Sunt unde delectus enim." },
+    "description": { "type": "string", "description": "Longer image description / alt text.", "example": "Ut iusto et sit eaque et eum molestiae hic." },
+    "url": { "type": "string", "format": "uri", "description": "Placeholder image URL.", "example": "https://picsum.photos/640/480" }
+  },
+  "required": ["url"]
+}

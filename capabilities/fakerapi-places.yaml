@@ -1,0 +1,95 @@
+naftiko: "1.0.0-alpha2"
+
+info:
+  label: "FakerAPI — Places"
+  description: >-
+    Places — Places. 1 operation. Lead operation: List Fake Places.
+    Self-contained Naftiko capability covering one FakerAPI business surface
+    for fake geographic coordinate pairs.
+  tags:
+    - FakerAPI
+    - Test Data
+    - Places
+  created: "2026-05-30"
+  modified: "2026-05-30"
+
+binds: []
+
+capability:
+
+  consumes:
+    - type: http
+      namespace: "fakerapi-places"
+      baseUri: "https://fakerapi.it/api/v1"
+      description: "FakerAPI — Places business capability. No authentication required."
+      resources:
+        - name: "places"
+          path: "/places"
+          operations:
+            - name: "listPlaces"
+              method: GET
+              description: "Return a collection of fake geographic coordinates."
+              inputParameters:
+                - name: "_quantity"
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Number of records (1-1000, default 10)."
+                - name: "_locale"
+                  in: query
+                  type: string
+                  required: false
+                  description: "Locale code."
+                - name: "_seed"
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Integer seed."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      namespace: "fakerapi-places-rest"
+      port: 8080
+      description: "REST adapter for FakerAPI — Places."
+      resources:
+        - path: "/v1/places"
+          name: "places"
+          description: "REST surface for fake places."
+          operations:
+            - method: GET
+              name: "listPlaces"
+              description: "Return a collection of fake geographic coordinates."
+              call: "fakerapi-places.listPlaces"
+              with:
+                "_quantity": "rest._quantity"
+                "_locale": "rest._locale"
+                "_seed": "rest._seed"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      namespace: "fakerapi-places-mcp"
+      port: 9090
+      transport: http
+      description: "MCP adapter for FakerAPI — Places."
+      tools:
+        - name: "list-fake-places"
+          description: "Return a collection of fake geographic coordinates."
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "fakerapi-places.listPlaces"
+          with:
+            "_quantity": "tools._quantity"
+            "_locale": "tools._locale"
+            "_seed": "tools._seed"
+          outputParameters:
+            - type: object
+              mapping: "$."

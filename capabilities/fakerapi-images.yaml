@@ -1,0 +1,116 @@
+naftiko: "1.0.0-alpha2"
+
+info:
+  label: "FakerAPI — Images"
+  description: >-
+    Images — Images. 1 operation. Lead operation: List Fake Images.
+    Self-contained Naftiko capability covering one FakerAPI business surface
+    for fake image references.
+  tags:
+    - FakerAPI
+    - Test Data
+    - Images
+  created: "2026-05-30"
+  modified: "2026-05-30"
+
+binds: []
+
+capability:
+
+  consumes:
+    - type: http
+      namespace: "fakerapi-images"
+      baseUri: "https://fakerapi.it/api/v1"
+      description: "FakerAPI — Images business capability. No authentication required."
+      resources:
+        - name: "images"
+          path: "/images"
+          operations:
+            - name: "listImages"
+              method: GET
+              description: "Return a collection of fake image references with title, description, and placeholder URL."
+              inputParameters:
+                - name: "_quantity"
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Number of records to return (1-1000, default 10)."
+                - name: "_locale"
+                  in: query
+                  type: string
+                  required: false
+                  description: "Locale code."
+                - name: "_seed"
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Integer seed for deterministic output."
+                - name: "_type"
+                  in: query
+                  type: string
+                  required: false
+                  description: "Image category (people, business, nature)."
+                - name: "_width"
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Placeholder image width in pixels."
+                - name: "_height"
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Placeholder image height in pixels."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      namespace: "fakerapi-images-rest"
+      port: 8080
+      description: "REST adapter for FakerAPI — Images."
+      resources:
+        - path: "/v1/images"
+          name: "images"
+          description: "REST surface for fake images."
+          operations:
+            - method: GET
+              name: "listImages"
+              description: "Return a collection of fake image references."
+              call: "fakerapi-images.listImages"
+              with:
+                "_quantity": "rest._quantity"
+                "_locale": "rest._locale"
+                "_seed": "rest._seed"
+                "_type": "rest._type"
+                "_width": "rest._width"
+                "_height": "rest._height"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      namespace: "fakerapi-images-mcp"
+      port: 9090
+      transport: http
+      description: "MCP adapter for FakerAPI — Images."
+      tools:
+        - name: "list-fake-images"
+          description: "Return a collection of fake image references."
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: "fakerapi-images.listImages"
+          with:
+            "_quantity": "tools._quantity"
+            "_locale": "tools._locale"
+            "_seed": "tools._seed"
+            "_type": "tools._type"
+            "_width": "tools._width"
+            "_height": "tools._height"
+          outputParameters:
+            - type: object
+              mapping: "$."

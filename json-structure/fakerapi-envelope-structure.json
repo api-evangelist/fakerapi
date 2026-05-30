@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/envelope.json",
+  "name": "ResponseEnvelope",
+  "description": "Shared response envelope returned by every FakerAPI endpoint.",
+  "type": "object",
+  "properties": {
+    "status": { "type": "string", "description": "Always 'OK' on success." },
+    "code": { "type": "int32", "description": "HTTP-style status code." },
+    "locale": { "type": "string", "description": "Locale used to generate the payload." },
+    "seed": { "type": "string", "description": "Seed echoed from the request, or null." },
+    "total": { "type": "int32", "description": "Number of records returned in data." },
+    "data": { "type": "array", "description": "Generated resource collection." }
+  },
+  "required": ["status", "code", "locale", "total", "data"]
+}

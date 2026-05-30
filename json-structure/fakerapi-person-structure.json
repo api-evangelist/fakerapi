@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/person.json",
+  "name": "Person",
+  "description": "A fake person profile produced by FakerAPI /api/v1/persons.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "int32" },
+    "firstname": { "type": "string" },
+    "lastname": { "type": "string" },
+    "email": { "type": "string" },
+    "phone": { "type": "string" },
+    "birthday": { "type": "date" },
+    "gender": { "type": "string", "enum": ["male", "female"] },
+    "website": { "type": "uri" },
+    "image": { "type": "uri" },
+    "address": { "$ref": "fakerapi-address-structure.json" }
+  },
+  "required": ["id", "firstname", "lastname", "email"]
+}

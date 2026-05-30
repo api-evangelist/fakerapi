@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fakerapi.it/schemas/product.json",
+  "title": "Product",
+  "description": "A fake product record produced by FakerAPI /api/v1/products.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer", "example": 1 },
+    "name": { "type": "string", "example": "Labore veniam quasi fugiat." },
+    "description": { "type": "string", "example": "Ducimus veniam aliquam rerum." },
+    "ean": { "type": "string", "description": "European Article Number barcode.", "example": "2227315600406" },
+    "upc": { "type": "string", "description": "Universal Product Code.", "example": "164094140922" },
+    "image": { "type": "string", "format": "uri", "example": "http://placeimg.com/640/480/tech" },
+    "images": {
+      "type": "array",
+      "items": { "$ref": "fakerapi-image-schema.json" }
+    },
+    "net_price": { "type": "string", "example": "19.99" },
+    "taxes": { "type": "integer", "example": 7 },
+    "price": { "type": "string", "example": "21.39" },
+    "categories": { "type": "array", "items": { "type": "string" }, "example": ["Electronics", "Accessories"] }
+  },
+  "required": ["id", "name"]
+}

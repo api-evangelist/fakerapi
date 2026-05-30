@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fakerapi.it/schemas/company.json",
+  "title": "Company",
+  "description": "A fake business / company record produced by FakerAPI /api/v1/companies.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer", "example": 1 },
+    "name": { "type": "string", "description": "Legal company name.", "example": "Krajcik LLC" },
+    "email": { "type": "string", "format": "email", "description": "Primary contact email.", "example": "wilbert14@satterfield.org" },
+    "vat": { "type": "string", "description": "VAT / tax identification number.", "example": "07027776643" },
+    "phone": { "type": "string", "description": "Primary phone number.", "example": "+14252384998" },
+    "country": { "type": "string", "description": "Country of registration.", "example": "Belize" },
+    "addresses": {
+      "type": "array",
+      "description": "Company addresses.",
+      "items": { "$ref": "fakerapi-address-schema.json" }
+    },
+    "website": { "type": "string", "format": "uri", "example": "http://blick.biz" },
+    "image": { "type": "string", "format": "uri", "description": "Logo placeholder URL.", "example": "http://placeimg.com/640/480/people" }
+  },
+  "required": ["id", "name", "email", "country"]
+}

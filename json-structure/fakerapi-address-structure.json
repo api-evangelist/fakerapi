@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/address.json",
+  "name": "Address",
+  "description": "A fake postal address with geographic coordinates produced by FakerAPI /api/v1/addresses.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "int32", "description": "Position of this address within the response collection." },
+    "street": { "type": "string", "description": "Full street line." },
+    "streetName": { "type": "string", "description": "Street name without building number." },
+    "buildingNumber": { "type": "string", "description": "Building / house number." },
+    "city": { "type": "string", "description": "City name." },
+    "zipcode": { "type": "string", "description": "Postal / ZIP code." },
+    "country": { "type": "string", "description": "Country name." },
+    "country_code": { "type": "string", "description": "ISO 3166-1 alpha-2 country code.", "minLength": 2, "maxLength": 2 },
+    "latitude": { "type": "double", "description": "Latitude in decimal degrees.", "minimum": -90, "maximum": 90 },
+    "longitude": { "type": "double", "description": "Longitude in decimal degrees.", "minimum": -180, "maximum": 180 }
+  },
+  "required": ["id", "street", "city", "country", "country_code", "latitude", "longitude"]
+}

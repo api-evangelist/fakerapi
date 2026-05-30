@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/book.json",
+  "name": "Book",
+  "description": "A fake book record produced by FakerAPI /api/v1/books.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "int32" },
+    "title": { "type": "string" },
+    "author": { "type": "string" },
+    "genre": { "type": "string" },
+    "description": { "type": "string" },
+    "isbn": { "type": "string" },
+    "image": { "type": "uri" },
+    "published": { "type": "date" },
+    "publisher": { "type": "string" }
+  },
+  "required": ["id", "title", "author", "isbn", "published"]
+}

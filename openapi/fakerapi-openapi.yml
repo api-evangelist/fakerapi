@@ -1,0 +1,685 @@
+openapi: 3.0.3
+info:
+  title: FakerAPI
+  description: |
+    FakerAPI is a free, no-authentication REST API that returns realistic fake
+    data for developers, designers, and QA engineers. It is built on top of the
+    PHP Faker library and exposes a single shape of GET endpoints for every
+    resource: addresses, books, companies, images, persons, places, products,
+    texts, users, and a fully custom resource builder.
+
+    Every endpoint accepts the same three control parameters:
+      * `_quantity` (1-1000, default 10)
+      * `_locale` (60+ locales, default `en_US`)
+      * `_seed` (any integer, for reproducible payloads)
+
+    All responses share an identical envelope: `status`, `code`, `locale`,
+    `seed`, `total`, and a `data` array of resource objects.
+  version: 1.0.0
+  contact:
+    name: Alessandro Pietrantonio
+    url: https://fakerapi.it/en
+  license:
+    name: Open Source
+    url: https://github.com/pietrantonio91/faker-api
+servers:
+  - url: https://fakerapi.it/api/v1
+    description: FakerAPI v1 (stable)
+tags:
+  - name: Addresses
+    description: Generate fake postal addresses with geo coordinates.
+  - name: Books
+    description: Generate fake book records.
+  - name: Companies
+    description: Generate fake business records.
+  - name: Images
+    description: Generate fake image references (titles, descriptions, URLs).
+  - name: Persons
+    description: Generate fake person profiles with nested addresses.
+  - name: Places
+    description: Generate fake geographic coordinates.
+  - name: Products
+    description: Generate fake product records with images.
+  - name: Texts
+    description: Generate fake titled text blocks.
+  - name: Users
+    description: Generate fake application user accounts.
+  - name: Custom
+    description: Generate fake records with a caller-defined field schema.
+paths:
+  /addresses:
+    get:
+      tags: [Addresses]
+      operationId: listAddresses
+      summary: List Fake Addresses
+      description: Return a collection of fake postal addresses with city, country, ZIP, and geocoordinates.
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+        - name: country_code
+          in: query
+          required: false
+          description: Restrict generated addresses to a specific ISO 3166-1 alpha-2 country code.
+          schema:
+            type: string
+            example: US
+      responses:
+        '200':
+          description: A collection of fake addresses.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Address'
+  /books:
+    get:
+      tags: [Books]
+      operationId: listBooks
+      summary: List Fake Books
+      description: Return a collection of fake book records (title, author, genre, ISBN, publisher).
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+      responses:
+        '200':
+          description: A collection of fake books.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Book'
+  /companies:
+    get:
+      tags: [Companies]
+      operationId: listCompanies
+      summary: List Fake Companies
+      description: Return a collection of fake company records including nested addresses.
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+      responses:
+        '200':
+          description: A collection of fake companies.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Company'
+  /images:
+    get:
+      tags: [Images]
+      operationId: listImages
+      summary: List Fake Images
+      description: Return a collection of fake image references with a title, description, and placeholder URL.
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+        - name: _type
+          in: query
+          required: false
+          description: Image category (people, business, nature, etc.) used in the placeholder URL.
+          schema:
+            type: string
+            example: people
+        - name: _width
+          in: query
+          required: false
+          description: Placeholder image width in pixels.
+          schema:
+            type: integer
+            example: 640
+        - name: _height
+          in: query
+          required: false
+          description: Placeholder image height in pixels.
+          schema:
+            type: integer
+            example: 480
+      responses:
+        '200':
+          description: A collection of fake images.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Image'
+  /persons:
+    get:
+      tags: [Persons]
+      operationId: listPersons
+      summary: List Fake Persons
+      description: Return a collection of fake person profiles with a nested address.
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+        - name: _gender
+          in: query
+          required: false
+          description: Restrict generated profiles to a single gender (`male` or `female`).
+          schema:
+            type: string
+            enum: [male, female]
+        - name: _birthday_start
+          in: query
+          required: false
+          description: Earliest birthday (YYYY-MM-DD) to generate.
+          schema:
+            type: string
+            format: date
+        - name: _birthday_end
+          in: query
+          required: false
+          description: Latest birthday (YYYY-MM-DD) to generate.
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: A collection of fake persons.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Person'
+  /places:
+    get:
+      tags: [Places]
+      operationId: listPlaces
+      summary: List Fake Places
+      description: Return a collection of fake geographic coordinates (latitude/longitude pairs).
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+      responses:
+        '200':
+          description: A collection of fake places.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Place'
+  /products:
+    get:
+      tags: [Products]
+      operationId: listProducts
+      summary: List Fake Products
+      description: Return a collection of fake product records with nested image references.
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+        - name: _categories_number
+          in: query
+          required: false
+          description: Number of fake categories to attach to each product.
+          schema:
+            type: integer
+            example: 2
+        - name: _taxes
+          in: query
+          required: false
+          description: Apply a tax percentage to the generated price.
+          schema:
+            type: integer
+            example: 7
+      responses:
+        '200':
+          description: A collection of fake products.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Product'
+  /texts:
+    get:
+      tags: [Texts]
+      operationId: listTexts
+      summary: List Fake Texts
+      description: Return a collection of fake titled text blocks (lorem-style content).
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+        - name: _characters
+          in: query
+          required: false
+          description: Maximum number of characters in each generated text block.
+          schema:
+            type: integer
+            example: 200
+      responses:
+        '200':
+          description: A collection of fake texts.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Text'
+  /users:
+    get:
+      tags: [Users]
+      operationId: listUsers
+      summary: List Fake Users
+      description: Return a collection of fake application user accounts.
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+        - name: _gender
+          in: query
+          required: false
+          description: Restrict generated accounts to a single gender (`male` or `female`).
+          schema:
+            type: string
+            enum: [male, female]
+      responses:
+        '200':
+          description: A collection of fake users.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/User'
+  /custom:
+    get:
+      tags: [Custom]
+      operationId: listCustom
+      summary: List Fake Custom Records
+      description: |
+        Generate records using a caller-defined field schema. Each extra query
+        parameter is treated as a field name whose value is a FakerAPI generator
+        identifier (for example `name=name&email=email&phone=phoneNumber`).
+        Supported generators include `name`, `firstName`, `lastName`,
+        `userName`, `email`, `freeEmail`, `phoneNumber`, `password`, `md5`,
+        `sha256`, `uuid`, `address`, `city`, `country`, `companyName`, `text`,
+        `paragraph`, `date`, `dateTime`, `boolean`, `integer`, `randomNumber`,
+        `imageUrl`, `color`, `emoji`, and more.
+      parameters:
+        - $ref: '#/components/parameters/Quantity'
+        - $ref: '#/components/parameters/Locale'
+        - $ref: '#/components/parameters/Seed'
+      responses:
+        '200':
+          description: A collection of custom-shaped fake records.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Envelope'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          type: object
+                          additionalProperties: true
+components:
+  parameters:
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
+  schemas:
+    Envelope:
+      type: object
+      required: [status, code, locale, total, data]
+      properties:
+        status:
+          type: string
+          example: OK
+        code:
+          type: integer
+          example: 200
+        locale:
+          type: string
+          example: en_US
+        seed:
+          type: string
+          nullable: true
+          example: '42'
+        total:
+          type: integer
+          example: 10
+        data:
+          type: array
+          items:
+            type: object
+    Address:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        street:
+          type: string
+          example: 4546 Willms Run
+        streetName:
+          type: string
+          example: Trantow Creek
+        buildingNumber:
+          type: string
+          example: '14316'
+        city:
+          type: string
+          example: South Christina
+        zipcode:
+          type: string
+          example: 08745-4080
+        country:
+          type: string
+          example: Svalbard & Jan Mayen
+        country_code:
+          type: string
+          example: SJ
+        latitude:
+          type: number
+          format: double
+          example: 45.46427
+        longitude:
+          type: number
+          format: double
+          example: 9.18951
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: Mock Turtle in the.
+        author:
+          type: string
+          example: Gladyce Ortiz
+        genre:
+          type: string
+          example: Et
+        description:
+          type: string
+          example: Mock Turtle replied, counting off the fire, licking her paws and washing her face.
+        isbn:
+          type: string
+          example: '9797826980333'
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/480/640/any
+        published:
+          type: string
+          format: date
+          example: '2003-10-05'
+        publisher:
+          type: string
+          example: Optio Aut
+    Company:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Krajcik LLC
+        email:
+          type: string
+          format: email
+          example: wilbert14@satterfield.org
+        vat:
+          type: string
+          example: '07027776643'
+        phone:
+          type: string
+          example: '+14252384998'
+        country:
+          type: string
+          example: Belize
+        addresses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+        website:
+          type: string
+          format: uri
+          example: http://blick.biz
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/640/480/people
+    Image:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Sunt unde delectus enim.
+        description:
+          type: string
+          example: Ut iusto et sit eaque et eum molestiae hic.
+        url:
+          type: string
+          format: uri
+          example: https://picsum.photos/640/480
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        firstname:
+          type: string
+          example: Urban
+        lastname:
+          type: string
+          example: Donnelly
+        email:
+          type: string
+          format: email
+          example: urban.donnelly@example.org
+        phone:
+          type: string
+          example: '+14252384998'
+        birthday:
+          type: string
+          format: date
+          example: '1985-04-12'
+        gender:
+          type: string
+          example: male
+        website:
+          type: string
+          format: uri
+          example: http://donnelly.example.com
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/640/480/people
+        address:
+          $ref: '#/components/schemas/Address'
+    Place:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+          example: 34.949545
+        longitude:
+          type: number
+          format: double
+          example: 54.299718
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Labore veniam quasi fugiat.
+        description:
+          type: string
+          example: Ducimus veniam aliquam rerum.
+        ean:
+          type: string
+          example: '2227315600406'
+        upc:
+          type: string
+          example: '164094140922'
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/640/480/tech
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        net_price:
+          type: string
+          example: '19.99'
+        taxes:
+          type: integer
+          example: 7
+        price:
+          type: string
+          example: '21.39'
+        categories:
+          type: array
+          items:
+            type: string
+          example: [Electronics, Accessories]
+    Text:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Duchess; 'and the.
+        author:
+          type: string
+          example: Candido Wisozk
+        genre:
+          type: string
+          example: Dolores
+        content:
+          type: string
+          example: There are no mice in the chimney as she went on.
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        uuid:
+          type: string
+          format: uuid
+          example: e36e99b7-9bc4-3318-8ab5-98c34f6d4cd6
+        firstname:
+          type: string
+          example: Urban
+        lastname:
+          type: string
+          example: Donnelly
+        username:
+          type: string
+          example: ctreutel
+        password:
+          type: string
+          example: 'nLxG^d;zF!gSAHFHl'
+        email:
+          type: string
+          format: email
+          example: rowena45@hotmail.com
+        ip:
+          type: string
+          example: 33.219.15.137
+        macAddress:
+          type: string
+          example: 34:CD:68:58:87:4B
+        website:
+          type: string
+          format: uri
+          example: http://thiel.com
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/640/480/people

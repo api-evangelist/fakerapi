@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/user.json",
+  "name": "User",
+  "description": "A fake application user account produced by FakerAPI /api/v1/users.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "int32" },
+    "uuid": { "type": "uuid" },
+    "firstname": { "type": "string" },
+    "lastname": { "type": "string" },
+    "username": { "type": "string" },
+    "password": { "type": "string" },
+    "email": { "type": "string" },
+    "ip": { "type": "string" },
+    "macAddress": { "type": "string" },
+    "website": { "type": "uri" },
+    "image": { "type": "uri" }
+  },
+  "required": ["id", "uuid", "username", "email"]
+}

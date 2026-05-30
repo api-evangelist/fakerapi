@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/text.json",
+  "name": "Text",
+  "description": "A fake titled lorem-style text block produced by FakerAPI /api/v1/texts.",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "author": { "type": "string" },
+    "genre": { "type": "string" },
+    "content": { "type": "string" }
+  },
+  "required": ["content"]
+}

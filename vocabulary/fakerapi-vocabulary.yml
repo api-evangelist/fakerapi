@@ -1,0 +1,175 @@
+name: FakerAPI Vocabulary
+description: >-
+  Controlled vocabulary for FakerAPI — a free, no-authentication REST API that
+  produces realistic fake data on demand. The vocabulary maps the operational
+  surface (resources, parameters, response envelope) and the capability
+  dimensions (test-data generation, mocking, prototyping) into a single
+  taxonomy that downstream tooling can index against.
+url: https://fakerapi.it/en
+created: '2026-05-30'
+modified: '2026-05-30'
+
+provider:
+  name: FakerAPI
+  authority: Alessandro Pietrantonio
+  governance: Open source community project
+  homepage: https://fakerapi.it/en
+  sourceRepository: https://github.com/pietrantonio91/faker-api
+  license: Open Source
+  cost: Free, no registration required
+
+operationalDimensions:
+
+  apiSurface:
+    description: Shape of the HTTP API exposed to consumers.
+    terms:
+      - name: REST
+        description: HTTP/JSON, GET-only, predictable resource paths.
+      - name: SingleVersion
+        description: Stable /api/v1 surface — no version negotiation required.
+      - name: NoAuthentication
+        description: All endpoints are public; no API key or token is required.
+      - name: ReadOnly
+        description: Every operation is a GET; no mutating verbs exposed.
+
+  resources:
+    description: First-class resource collections returned by FakerAPI.
+    terms:
+      - name: Addresses
+        path: /api/v1/addresses
+        description: Postal addresses with geographic coordinates.
+      - name: Books
+        path: /api/v1/books
+        description: Book records with title, author, ISBN, publisher.
+      - name: Companies
+        path: /api/v1/companies
+        description: Business / organization records with nested addresses.
+      - name: Images
+        path: /api/v1/images
+        description: Image references with title, description, placeholder URL.
+      - name: Persons
+        path: /api/v1/persons
+        description: Person profiles with name, contact, birthday, address.
+      - name: Places
+        path: /api/v1/places
+        description: Geographic coordinate pairs.
+      - name: Products
+        path: /api/v1/products
+        description: Product records with barcodes and images.
+      - name: Texts
+        path: /api/v1/texts
+        description: Lorem-style titled text blocks.
+      - name: Users
+        path: /api/v1/users
+        description: Application user accounts with credentials and identifiers.
+      - name: Custom
+        path: /api/v1/custom
+        description: Caller-defined field schema, returning bespoke records.
+
+  controlParameters:
+    description: Universal request parameters shared across every resource.
+    terms:
+      - name: _quantity
+        description: Number of records to return (1-1000, default 10).
+      - name: _locale
+        description: Locale code (en_US, fr_FR, it_IT, etc.). 60+ locales.
+      - name: _seed
+        description: Integer seed for deterministic / reproducible output.
+
+  resourceSpecificParameters:
+    description: Parameters that apply to a single resource.
+    terms:
+      - name: country_code
+        appliesTo: /api/v1/addresses
+        description: Restrict generated addresses to a country.
+      - name: _type
+        appliesTo: /api/v1/images
+        description: Image category (people, business, nature) used in URL.
+      - name: _width
+        appliesTo: /api/v1/images
+        description: Placeholder image width in pixels.
+      - name: _height
+        appliesTo: /api/v1/images
+        description: Placeholder image height in pixels.
+      - name: _gender
+        appliesTo: /api/v1/persons,/api/v1/users
+        description: Restrict generated profiles to male or female.
+      - name: _categories_number
+        appliesTo: /api/v1/products
+        description: Number of categories attached per product.
+      - name: _taxes
+        appliesTo: /api/v1/products
+        description: Tax percentage applied to product pricing.
+      - name: _characters
+        appliesTo: /api/v1/texts
+        description: Maximum characters in generated text blocks.
+
+  responseEnvelope:
+    description: Shape of every JSON response.
+    terms:
+      - name: status
+        description: Always "OK" on success.
+      - name: code
+        description: HTTP-style status code mirrored in the body.
+      - name: locale
+        description: Locale used to render the payload.
+      - name: seed
+        description: Seed echoed from the request (or null).
+      - name: total
+        description: Number of records returned in data.
+      - name: data
+        description: Generated resource collection.
+
+capabilityDimensions:
+
+  primaryCapabilities:
+    description: Core capabilities FakerAPI provides to consumers.
+    terms:
+      - name: TestDataGeneration
+        description: Produce realistic fake records for tests and demos.
+      - name: APIMocking
+        description: Serve as a stand-in upstream during early integration work.
+      - name: PrototypeSeeding
+        description: Populate UIs, dashboards, and seed databases for prototypes.
+      - name: LoadFixtureGeneration
+        description: Pull deterministic, seedable payloads for load tests.
+      - name: LocaleVariantGeneration
+        description: Produce data in 60+ locales for i18n testing.
+
+  consumerArchetypes:
+    description: Who typically consumes FakerAPI.
+    terms:
+      - name: FrontendDeveloper
+      - name: QAEngineer
+      - name: APIDesigner
+      - name: TechnicalEducator
+      - name: PrototypeBuilder
+      - name: DataScientist
+      - name: WorkshopFacilitator
+
+  domainTags:
+    description: High-level categorical tags for indexing.
+    terms:
+      - TestData
+      - FakeData
+      - Mocking
+      - Prototyping
+      - DeveloperTools
+      - OpenSource
+      - PublicAPIs
+      - Internationalization
+
+interoperability:
+  upstream:
+    - name: PHP Faker
+      url: https://github.com/fzaninotto/Faker
+      role: Underlying generator library FakerAPI wraps.
+  downstream:
+    - name: Postman
+      role: Easy to import and run from a Postman collection.
+    - name: Insomnia
+      role: Direct GET calls from any REST client.
+    - name: Mock Service Worker / Microcks / Prism
+      role: Use FakerAPI output as fixtures for HTTP mock servers.
+    - name: Frontend frameworks
+      role: React, Vue, Svelte, etc. fetch JSON directly during development.

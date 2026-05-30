@@ -1,0 +1,79 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+    "fakerapi": "https://fakerapi.it/vocab#",
+
+    "id": "schema:identifier",
+    "status": "fakerapi:status",
+    "code": "fakerapi:httpCode",
+    "locale": "schema:inLanguage",
+    "seed": "fakerapi:seed",
+    "total": "schema:numberOfItems",
+    "data": {
+      "@id": "schema:itemListElement",
+      "@container": "@list"
+    },
+
+    "Address": "schema:PostalAddress",
+    "street": "schema:streetAddress",
+    "streetName": "fakerapi:streetName",
+    "buildingNumber": "fakerapi:buildingNumber",
+    "city": "schema:addressLocality",
+    "zipcode": "schema:postalCode",
+    "country": "schema:addressCountry",
+    "country_code": "fakerapi:countryCode",
+    "latitude": "geo:lat",
+    "longitude": "geo:long",
+
+    "Book": "schema:Book",
+    "title": "schema:name",
+    "author": "schema:author",
+    "genre": "schema:genre",
+    "description": "schema:description",
+    "isbn": "schema:isbn",
+    "image": "schema:image",
+    "published": "schema:datePublished",
+    "publisher": "schema:publisher",
+
+    "Company": "schema:Organization",
+    "name": "schema:name",
+    "email": "schema:email",
+    "vat": "schema:vatID",
+    "phone": "schema:telephone",
+    "addresses": "schema:address",
+    "website": "schema:url",
+
+    "Image": "schema:ImageObject",
+    "url": "schema:contentUrl",
+
+    "Person": "schema:Person",
+    "firstname": "schema:givenName",
+    "lastname": "schema:familyName",
+    "birthday": "schema:birthDate",
+    "gender": "schema:gender",
+    "address": "schema:address",
+
+    "Place": "schema:Place",
+
+    "Product": "schema:Product",
+    "ean": "schema:gtin13",
+    "upc": "schema:gtin12",
+    "images": "schema:image",
+    "net_price": "fakerapi:netPrice",
+    "taxes": "fakerapi:taxRate",
+    "price": "schema:price",
+    "categories": "schema:category",
+
+    "Text": "schema:CreativeWork",
+    "content": "schema:text",
+
+    "User": "schema:Person",
+    "uuid": "fakerapi:uuid",
+    "username": "fakerapi:username",
+    "password": "fakerapi:password",
+    "ip": "fakerapi:ipAddress",
+    "macAddress": "fakerapi:macAddress"
+  }
+}

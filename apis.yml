@@ -1,32 +1,188 @@
 aid: fakerapi
 name: FakerAPI
-description: "APIs collection to get fake data"
-url: https://fakerapi.it/en
+description: >-
+  FakerAPI is a free, no-authentication REST API that returns realistic fake
+  data for developers, designers, and QA engineers. Built on top of the PHP
+  Faker library by Alessandro Pietrantonio, it exposes a uniform set of GET
+  endpoints for addresses, books, companies, images, persons, places, products,
+  texts, users, and a fully custom resource builder. Every endpoint accepts
+  the same three control parameters (_quantity, _locale, _seed) and returns
+  the same envelope, making it trivial to use for prototypes, mock servers,
+  workshop fixtures, and integration tests.
+url: https://github.com/pietrantonio91/faker-api
+humanURL: https://fakerapi.it/en
+baseURL: https://fakerapi.it/api/v1
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-30'
+x-type: opensource
 x-source: public-apis/public-apis
 x-category: "Test Data"
 x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-tier-reason: bulk-registered-from-public-apis-then-enriched
 tags:
   - Test Data
+  - Fake Data
+  - Mocking
+  - Developer Tools
+  - Open Source
   - Public APIs
 apis:
   - name: FakerAPI
-    description: "APIs collection to get fake data"
+    description: >-
+      Free, no-authentication REST API serving fake data across ten resource
+      collections (addresses, books, companies, images, persons, places,
+      products, texts, users, custom). Every operation is a GET and shares the
+      same response envelope (status, code, locale, seed, total, data).
     humanURL: https://fakerapi.it/en
-    baseURL: https://fakerapi.it/en
+    baseURL: https://fakerapi.it/api/v1
     tags:
       - Test Data
+      - Fake Data
     properties:
       - type: Documentation
         url: https://fakerapi.it/en
+      - type: OpenAPI
+        url: openapi/fakerapi-openapi.yml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-addresses.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-books.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-companies.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-custom.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-images.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-persons.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-places.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-products.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-texts.yaml
+      - type: NaftikoCapability
+        url: capabilities/fakerapi-users.yaml
+      - type: JSONSchema
+        url: json-schema/fakerapi-address-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-book-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-company-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-envelope-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-image-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-person-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-place-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-product-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-text-schema.json
+      - type: JSONSchema
+        url: json-schema/fakerapi-user-schema.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-address-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-book-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-company-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-envelope-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-image-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-person-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-place-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-product-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-text-structure.json
+      - type: JSONStructure
+        url: json-structure/fakerapi-user-structure.json
+      - type: Example
+        url: examples/fakerapi-list-addresses-example.json
+      - type: Example
+        url: examples/fakerapi-list-books-example.json
+      - type: Example
+        url: examples/fakerapi-list-companies-example.json
+      - type: Example
+        url: examples/fakerapi-list-custom-example.json
+      - type: Example
+        url: examples/fakerapi-list-images-example.json
+      - type: Example
+        url: examples/fakerapi-list-persons-example.json
+      - type: Example
+        url: examples/fakerapi-list-places-example.json
+      - type: Example
+        url: examples/fakerapi-list-products-example.json
+      - type: Example
+        url: examples/fakerapi-list-texts-example.json
+      - type: Example
+        url: examples/fakerapi-list-users-example.json
 common:
   - type: Website
     url: https://fakerapi.it/en
+  - type: GitHubRepository
+    url: https://github.com/pietrantonio91/faker-api
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+  - type: JSONLD
+    url: json-ld/fakerapi-context.jsonld
+  - type: SpectralRules
+    url: rules/fakerapi-rules.yml
+  - type: Vocabulary
+    url: vocabulary/fakerapi-vocabulary.yml
+  - type: Features
+    data:
+      - name: Ten Resource Collections
+        description: Addresses, books, companies, images, persons, places, products, texts, users, and a custom resource builder.
+      - name: No Authentication
+        description: Every endpoint is open; no API key or registration required.
+      - name: 60+ Locales
+        description: Generate data in en_US, fr_FR, it_IT, ja_JP, and 60+ other locales via the _locale parameter.
+      - name: Deterministic Seeding
+        description: Pass _seed to make payloads exactly reproducible across runs.
+      - name: Up to 1000 Records Per Call
+        description: Tune _quantity from 1 to 1000 records per request, default 10.
+      - name: Custom Schema Endpoint
+        description: /api/v1/custom accepts a caller-defined field map (e.g. name=name, email=email, phone=phoneNumber) and returns matching records.
+      - name: Standard Response Envelope
+        description: Every endpoint returns the same {status, code, locale, seed, total, data} shape.
+      - name: Free Forever
+        description: Service is described as Free, Forever with no published rate limits.
+  - type: UseCases
+    data:
+      - name: Frontend Prototyping
+        description: Populate React, Vue, or Svelte mockups with realistic data without standing up a backend.
+      - name: API Mocking
+        description: Use FakerAPI directly or as a fixture source for Microcks, Prism, MSW, or Postman.
+      - name: QA Test Data
+        description: Generate deterministic test fixtures (via _seed) for automated browser and API tests.
+      - name: Workshop and Training Fixtures
+        description: Hand learners a single URL to fetch sample data instead of provisioning per-student accounts.
+      - name: Database Seeding
+        description: Seed development databases with thousands of fake users, companies, or products.
+      - name: Internationalization Testing
+        description: Exercise i18n code paths with names, addresses, and phone numbers in 60+ locales.
+      - name: Load Test Payload Generation
+        description: Pull large, reproducible JSON payloads to feed load generators.
+  - type: Integrations
+    data:
+      - name: PHP Faker
+        description: FakerAPI is a thin HTTP wrapper over the venerable PHP Faker library by François Zaninotto.
+      - name: Postman / Insomnia
+        description: Trivially imported as a GET-only collection.
+      - name: Microcks / Prism / MSW
+        description: FakerAPI payloads work well as fixture sources for HTTP mocking tools.
+      - name: Frontend Frameworks
+        description: React, Vue, Svelte, Angular, and SolidJS all fetch FakerAPI JSON directly during development.
+      - name: Naftiko
+        description: Wrapped per-resource as Naftiko capabilities exposing REST and MCP adapters routed to fakerapi.it.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fakerapi.it/schemas/text.json",
+  "title": "Text",
+  "description": "A fake titled lorem-style text block produced by FakerAPI /api/v1/texts.",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string", "example": "Duchess; 'and the." },
+    "author": { "type": "string", "example": "Candido Wisozk" },
+    "genre": { "type": "string", "example": "Dolores" },
+    "content": { "type": "string", "example": "There are no mice in the chimney as she went on." }
+  },
+  "required": ["content"]
+}

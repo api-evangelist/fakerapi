@@ -1,0 +1,339 @@
+extends: [[spectral:oas, all]]
+
+# Spectral ruleset for FakerAPI.
+# FakerAPI is a single-version, single-tag-per-resource, GET-only API. The
+# ruleset enforces the conventions found in fakerapi-openapi.yml: kebab-case
+# resource paths, snake_case parameters, Title Case summaries, lowercase plural
+# resource nouns, and the universal `_quantity` / `_locale` / `_seed` controls.
+
+rules:
+
+  # ── INFO / METADATA ──────────────────────────────────────────────────────
+  fakerapi-info-title:
+    description: Info title must start with "FakerAPI".
+    severity: error
+    given: $.info.title
+    then:
+      function: pattern
+      functionOptions:
+        match: '^FakerAPI'
+
+  fakerapi-info-description-required:
+    description: Info description is required and must be at least 60 characters.
+    severity: error
+    given: $.info.description
+    then:
+      function: length
+      functionOptions:
+        min: 60
+
+  fakerapi-info-contact-required:
+    description: Info contact block must be defined.
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+
+  # ── OPENAPI VERSION ──────────────────────────────────────────────────────
+  fakerapi-openapi-version:
+    description: OpenAPI version must be 3.0.x.
+    severity: error
+    given: $.openapi
+    then:
+      function: pattern
+      functionOptions:
+        match: '^3\.0\.'
+
+  # ── SERVERS ──────────────────────────────────────────────────────────────
+  fakerapi-server-required:
+    description: At least one server entry must be defined.
+    severity: error
+    given: $.servers
+    then:
+      function: length
+      functionOptions:
+        min: 1
+
+  fakerapi-server-https:
+    description: Server URLs must use https.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+
+  fakerapi-server-includes-v1:
+    description: FakerAPI server URL must include the /api/v1 prefix.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '/api/v1'
+
+  # ── PATHS — NAMING CONVENTIONS ───────────────────────────────────────────
+  fakerapi-path-kebab-case:
+    description: Path segments must be lowercase kebab-case (resource nouns).
+    severity: error
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(\/[a-z0-9][a-z0-9-]*)+$'
+
+  fakerapi-path-no-trailing-slash:
+    description: Paths must not end with a trailing slash.
+    severity: error
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '.+/$'
+
+  fakerapi-path-plural-noun:
+    description: Resource path segments should be plural nouns (addresses, books, ...).
+    severity: warn
+    given: $.paths.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '(s|custom)$'
+
+  # ── OPERATIONS ───────────────────────────────────────────────────────────
+  fakerapi-operation-only-get:
+    description: FakerAPI exposes only GET endpoints; other methods are not allowed.
+    severity: error
+    given: $.paths[*]
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: '^(get|parameters|summary|description)$'
+
+  fakerapi-operation-summary-required:
+    description: Every operation must have a summary.
+    severity: error
+    given: $.paths[*][get]
+    then:
+      field: summary
+      function: truthy
+
+  fakerapi-operation-summary-title-case:
+    description: Operation summaries should be in Title Case and start with a verb.
+    severity: warn
+    given: $.paths[*][get].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(List|Get|Retrieve|Search|Find)\s+[A-Z]'
+
+  fakerapi-operation-description-required:
+    description: Every operation must have a description.
+    severity: error
+    given: $.paths[*][get]
+    then:
+      field: description
+      function: truthy
+
+  fakerapi-operation-id-required:
+    description: operationId is required on every operation.
+    severity: error
+    given: $.paths[*][get]
+    then:
+      field: operationId
+      function: truthy
+
+  fakerapi-operation-id-camel-case:
+    description: operationId must be camelCase.
+    severity: error
+    given: $.paths[*][get].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]+$'
+
+  fakerapi-operation-id-list-prefix:
+    description: FakerAPI operations are collections; operationId should start with "list".
+    severity: warn
+    given: $.paths[*][get].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: '^list'
+
+  fakerapi-operation-tag-required:
+    description: Every operation must declare at least one tag.
+    severity: error
+    given: $.paths[*][get]
+    then:
+      field: tags
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          minItems: 1
+
+  # ── TAGS ─────────────────────────────────────────────────────────────────
+  fakerapi-tags-global-defined:
+    description: Top-level tags array must be defined.
+    severity: warn
+    given: $.tags
+    then:
+      function: truthy
+
+  fakerapi-tags-title-case:
+    description: Top-level tag names must be Title Case (Addresses, Books, Companies, ...).
+    severity: error
+    given: $.tags[*].name
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][a-zA-Z]+(\s[A-Z][a-zA-Z]+)*$'
+
+  fakerapi-tags-description-required:
+    description: Every top-level tag must have a description.
+    severity: warn
+    given: $.tags[*]
+    then:
+      field: description
+      function: truthy
+
+  # ── PARAMETERS ───────────────────────────────────────────────────────────
+  fakerapi-param-description-required:
+    description: Every parameter must have a description.
+    severity: error
+    given: $.paths[*][*].parameters[*]
+    then:
+      field: description
+      function: truthy
+
+  fakerapi-quantity-param-shape:
+    description: The _quantity parameter must be an integer between 1 and 1000.
+    severity: warn
+    given: $..parameters[?(@.name=='_quantity')].schema
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          properties:
+            type:
+              const: integer
+            minimum:
+              const: 1
+            maximum:
+              const: 1000
+          required: [type, minimum, maximum]
+
+  fakerapi-locale-param-default:
+    description: The _locale parameter should default to en_US.
+    severity: warn
+    given: $..parameters[?(@.name=='_locale')].schema
+    then:
+      field: default
+      function: pattern
+      functionOptions:
+        match: '^en_US$'
+
+  fakerapi-seed-param-integer:
+    description: The _seed parameter must be an integer for deterministic output.
+    severity: warn
+    given: $..parameters[?(@.name=='_seed')].schema
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values: [integer]
+
+  # ── RESPONSES ────────────────────────────────────────────────────────────
+  fakerapi-response-200-required:
+    description: Every operation must define a 200 response.
+    severity: error
+    given: $.paths[*][get].responses
+    then:
+      field: '200'
+      function: truthy
+
+  fakerapi-response-content-json:
+    description: Responses must be application/json.
+    severity: error
+    given: $.paths[*][get].responses[*].content
+    then:
+      field: application/json
+      function: truthy
+
+  fakerapi-response-envelope:
+    description: All responses must extend the standard FakerAPI envelope (status / code / locale / seed / total / data).
+    severity: warn
+    given: $.paths[*][get].responses[200].content.application/json.schema
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          oneOf:
+            - { required: [allOf] }
+            - { required: [$ref] }
+
+  # ── SCHEMAS — PROPERTY NAMING ────────────────────────────────────────────
+  fakerapi-schema-property-naming:
+    description: Schema property names must be lowercase camelCase or snake_case (the spec uses both, e.g. streetName + country_code).
+    severity: warn
+    given: $.components.schemas[*].properties.*~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9_]*$'
+
+  fakerapi-schema-id-integer:
+    description: id properties must be integers.
+    severity: warn
+    given: $.components.schemas[*].properties.id
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values: [integer]
+
+  fakerapi-schema-description-recommended:
+    description: Top-level schemas should have a description.
+    severity: info
+    given: $.components.schemas[*]
+    then:
+      field: description
+      function: truthy
+
+  # ── SECURITY ─────────────────────────────────────────────────────────────
+  fakerapi-no-security-required:
+    description: FakerAPI is open and unauthenticated; the spec must not require security.
+    severity: error
+    given: $
+    then:
+      field: security
+      function: falsy
+
+  # ── HTTP METHOD CONVENTIONS ──────────────────────────────────────────────
+  fakerapi-get-no-request-body:
+    description: GET operations must not declare a requestBody.
+    severity: error
+    given: $.paths[*][get]
+    then:
+      field: requestBody
+      function: falsy
+
+  # ── GENERAL QUALITY ──────────────────────────────────────────────────────
+  fakerapi-no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
+      function: truthy
+
+  fakerapi-examples-encouraged:
+    description: Each schema property should provide an example value.
+    severity: info
+    given: $.components.schemas[*].properties[*]
+    then:
+      field: example
+      function: truthy

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://fakerapi.it/structures/product.json",
+  "name": "Product",
+  "description": "A fake product record produced by FakerAPI /api/v1/products.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "int32" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "ean": { "type": "string" },
+    "upc": { "type": "string" },
+    "image": { "type": "uri" },
+    "images": { "type": "array", "items": { "$ref": "fakerapi-image-structure.json" } },
+    "net_price": { "type": "string" },
+    "taxes": { "type": "int32" },
+    "price": { "type": "string" },
+    "categories": { "type": "array", "items": { "type": "string" } }
+  },
+  "required": ["id", "name"]
+}
