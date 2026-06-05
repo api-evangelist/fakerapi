@@ -1,14 +1,11 @@
 aid: fakerapi
 name: FakerAPI
 description: >-
-  FakerAPI is a free, no-authentication REST API that returns realistic fake
-  data for developers, designers, and QA engineers. Built on top of the PHP
-  Faker library by Alessandro Pietrantonio, it exposes a uniform set of GET
-  endpoints for addresses, books, companies, images, persons, places, products,
-  texts, users, and a fully custom resource builder. Every endpoint accepts
-  the same three control parameters (_quantity, _locale, _seed) and returns
-  the same envelope, making it trivial to use for prototypes, mock servers,
-  workshop fixtures, and integration tests.
+  FakerAPI is a free, no-authentication REST API that returns realistic fake data for developers, designers, and QA
+  engineers. Built on top of the PHP Faker library by Alessandro Pietrantonio, it exposes a uniform set of GET endpoints
+  for addresses, books, companies, images, persons, places, products, texts, users, and a fully custom resource builder.
+  Every endpoint accepts the same three control parameters (_quantity, _locale, _seed) and returns the same envelope,
+  making it trivial to use for prototypes, mock servers, workshop fixtures, and integration tests.
 url: https://github.com/pietrantonio91/faker-api
 humanURL: https://fakerapi.it/en
 baseURL: https://fakerapi.it/api/v1
@@ -17,7 +14,7 @@ created: '2026-05-28'
 modified: '2026-05-30'
 x-type: opensource
 x-source: public-apis/public-apis
-x-category: "Test Data"
+x-category: Test Data
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis-then-enriched
 tags:
@@ -30,10 +27,9 @@ tags:
 apis:
   - name: FakerAPI
     description: >-
-      Free, no-authentication REST API serving fake data across ten resource
-      collections (addresses, books, companies, images, persons, places,
-      products, texts, users, custom). Every operation is a GET and shares the
-      same response envelope (status, code, locale, seed, total, data).
+      Free, no-authentication REST API serving fake data across ten resource collections (addresses, books, companies,
+      images, persons, places, products, texts, users, custom). Every operation is a GET and shares the same response
+      envelope (status, code, locale, seed, total, data).
     humanURL: https://fakerapi.it/en
     baseURL: https://fakerapi.it/api/v1
     tags:
@@ -44,26 +40,6 @@ apis:
         url: https://fakerapi.it/en
       - type: OpenAPI
         url: openapi/fakerapi-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-addresses.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-books.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-companies.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-custom.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-images.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-persons.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-places.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-products.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-texts.yaml
-      - type: NaftikoCapability
-        url: capabilities/fakerapi-users.yaml
       - type: JSONSchema
         url: json-schema/fakerapi-address-schema.json
       - type: JSONSchema
@@ -150,7 +126,9 @@ common:
       - name: Up to 1000 Records Per Call
         description: Tune _quantity from 1 to 1000 records per request, default 10.
       - name: Custom Schema Endpoint
-        description: /api/v1/custom accepts a caller-defined field map (e.g. name=name, email=email, phone=phoneNumber) and returns matching records.
+        description: >-
+          /api/v1/custom accepts a caller-defined field map (e.g. name=name, email=email, phone=phoneNumber) and returns
+          matching records.
       - name: Standard Response Envelope
         description: Every endpoint returns the same {status, code, locale, seed, total, data} shape.
       - name: Free Forever
