@@ -1,0 +1,466 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FakerAPI",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Addresses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/addresses",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "query",
+                "description": "Restrict generated addresses to a specific ISO 3166-1 alpha-2 country code."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake postal addresses with city, country, ZIP, and geocoordinates."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Books",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Books",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/books",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake book records (title, author, genre, ISBN, publisher)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Companies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Companies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/companies",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake company records including nested addresses."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/images",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "_type",
+                "value": "",
+                "type": "query",
+                "description": "Image category (people, business, nature, etc.) used in the placeholder URL."
+              },
+              {
+                "name": "_width",
+                "value": "",
+                "type": "query",
+                "description": "Placeholder image width in pixels."
+              },
+              {
+                "name": "_height",
+                "value": "",
+                "type": "query",
+                "description": "Placeholder image height in pixels."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake image references with a title, description, and placeholder URL."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Persons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/persons",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "_gender",
+                "value": "",
+                "type": "query",
+                "description": "Restrict generated profiles to a single gender (`male` or `female`)."
+              },
+              {
+                "name": "_birthday_start",
+                "value": "",
+                "type": "query",
+                "description": "Earliest birthday (YYYY-MM-DD) to generate."
+              },
+              {
+                "name": "_birthday_end",
+                "value": "",
+                "type": "query",
+                "description": "Latest birthday (YYYY-MM-DD) to generate."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake person profiles with a nested address."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Places",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Places",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/places",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake geographic coordinates (latitude/longitude pairs)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/products",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "_categories_number",
+                "value": "",
+                "type": "query",
+                "description": "Number of fake categories to attach to each product."
+              },
+              {
+                "name": "_taxes",
+                "value": "",
+                "type": "query",
+                "description": "Apply a tax percentage to the generated price."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake product records with nested image references."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Texts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Texts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/texts",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "_characters",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of characters in each generated text block."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake titled text blocks (lorem-style content)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/users",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "_gender",
+                "value": "",
+                "type": "query",
+                "description": "Restrict generated accounts to a single gender (`male` or `female`)."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake application user accounts."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custom",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Custom Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/custom",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              }
+            ]
+          },
+          "docs": "Generate records using a caller-defined field schema. Each extra query\nparameter is treated as a field name whose value is a FakerAPI generator\nidentifier (for example `name=name&email=email&phone=phoneNumber`).\nSupported generators include `name`, `firstName`, `lastName`,\n`userName`, `email`, `freeEmail`, `phoneNumber`, `password`, `md5`,\n`sha256`, `uuid`, `address`, `city`, `country`, `companyName`, `text`,\n`paragraph`, `date`, `dateTime`, `boolean`, `integer`, `randomNumber`,\n`imageUrl`, `col"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

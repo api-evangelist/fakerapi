@@ -1,0 +1,1261 @@
+{
+  "item": [
+    {
+      "id": "c1ec13f7-99a4-4038-8e7a-c75411c45eff",
+      "name": "Addresses",
+      "description": {
+        "content": "Generate fake postal addresses with geo coordinates.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70070d5c-2923-417d-b192-684a5e1c98b0",
+          "name": "List Fake Addresses",
+          "request": {
+            "name": "List Fake Addresses",
+            "description": {
+              "content": "Return a collection of fake postal addresses with city, country, ZIP, and geocoordinates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                },
+                {
+                  "disabled": false,
+                  "key": "country_code",
+                  "value": "<string>",
+                  "description": "Restrict generated addresses to a specific ISO 3166-1 alpha-2 country code."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f84e117f-6ef9-4351-95a2-e2864151acb7",
+              "name": "A collection of fake addresses.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    },
+                    {
+                      "key": "country_code",
+                      "value": "US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"street\": \"4546 Willms Run\",\n      \"streetName\": \"Trantow Creek\",\n      \"buildingNumber\": \"14316\",\n      \"city\": \"South Christina\",\n      \"zipcode\": \"08745-4080\",\n      \"country\": \"Svalbard & Jan Mayen\",\n      \"country_code\": \"SJ\",\n      \"latitude\": 45.46427,\n      \"longitude\": 9.18951\n    },\n    {\n      \"id\": 1,\n      \"street\": \"4546 Willms Run\",\n      \"streetName\": \"Trantow Creek\",\n      \"buildingNumber\": \"14316\",\n      \"city\": \"South Christina\",\n      \"zipcode\": \"08745-4080\",\n      \"country\": \"Svalbard & Jan Mayen\",\n      \"country_code\": \"SJ\",\n      \"latitude\": 45.46427,\n      \"longitude\": 9.18951\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "248972f0-864a-493a-ab83-d81bdcb2176d",
+      "name": "Books",
+      "description": {
+        "content": "Generate fake book records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "327a53f8-6f3d-418b-a622-b904499192f3",
+          "name": "List Fake Books",
+          "request": {
+            "name": "List Fake Books",
+            "description": {
+              "content": "Return a collection of fake book records (title, author, genre, ISBN, publisher).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "books"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04c54642-427c-4db8-856b-d8878c4fb905",
+              "name": "A collection of fake books.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "books"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"title\": \"Mock Turtle in the.\",\n      \"author\": \"Gladyce Ortiz\",\n      \"genre\": \"Et\",\n      \"description\": \"Mock Turtle replied, counting off the fire, licking her paws and washing her face.\",\n      \"isbn\": \"9797826980333\",\n      \"image\": \"http://placeimg.com/480/640/any\",\n      \"published\": \"2003-10-05\",\n      \"publisher\": \"Optio Aut\"\n    },\n    {\n      \"id\": 1,\n      \"title\": \"Mock Turtle in the.\",\n      \"author\": \"Gladyce Ortiz\",\n      \"genre\": \"Et\",\n      \"description\": \"Mock Turtle replied, counting off the fire, licking her paws and washing her face.\",\n      \"isbn\": \"9797826980333\",\n      \"image\": \"http://placeimg.com/480/640/any\",\n      \"published\": \"2003-10-05\",\n      \"publisher\": \"Optio Aut\"\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ce9800e7-a94c-4a72-8097-017b3a3c5f93",
+      "name": "Companies",
+      "description": {
+        "content": "Generate fake business records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c722058-cf41-41d7-911b-ba69a91645fa",
+          "name": "List Fake Companies",
+          "request": {
+            "name": "List Fake Companies",
+            "description": {
+              "content": "Return a collection of fake company records including nested addresses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b4a5cea-4fa0-4f5a-b4ef-f43f960e74b8",
+              "name": "A collection of fake companies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Krajcik LLC\",\n      \"email\": \"wilbert14@satterfield.org\",\n      \"vat\": \"07027776643\",\n      \"phone\": \"+14252384998\",\n      \"country\": \"Belize\",\n      \"addresses\": [\n        {\n          \"id\": 1,\n          \"street\": \"4546 Willms Run\",\n          \"streetName\": \"Trantow Creek\",\n          \"buildingNumber\": \"14316\",\n          \"city\": \"South Christina\",\n          \"zipcode\": \"08745-4080\",\n          \"country\": \"Svalbard & Jan Mayen\",\n          \"country_code\": \"SJ\",\n          \"latitude\": 45.46427,\n          \"longitude\": 9.18951\n        },\n        {\n          \"id\": 1,\n          \"street\": \"4546 Willms Run\",\n          \"streetName\": \"Trantow Creek\",\n          \"buildingNumber\": \"14316\",\n          \"city\": \"South Christina\",\n          \"zipcode\": \"08745-4080\",\n          \"country\": \"Svalbard & Jan Mayen\",\n          \"country_code\": \"SJ\",\n          \"latitude\": 45.46427,\n          \"longitude\": 9.18951\n        }\n      ],\n      \"website\": \"http://blick.biz\",\n      \"image\": \"http://placeimg.com/640/480/people\"\n    },\n    {\n      \"id\": 1,\n      \"name\": \"Krajcik LLC\",\n      \"email\": \"wilbert14@satterfield.org\",\n      \"vat\": \"07027776643\",\n      \"phone\": \"+14252384998\",\n      \"country\": \"Belize\",\n      \"addresses\": [\n        {\n          \"id\": 1,\n          \"street\": \"4546 Willms Run\",\n          \"streetName\": \"Trantow Creek\",\n          \"buildingNumber\": \"14316\",\n          \"city\": \"South Christina\",\n          \"zipcode\": \"08745-4080\",\n          \"country\": \"Svalbard & Jan Mayen\",\n          \"country_code\": \"SJ\",\n          \"latitude\": 45.46427,\n          \"longitude\": 9.18951\n        },\n        {\n          \"id\": 1,\n          \"street\": \"4546 Willms Run\",\n          \"streetName\": \"Trantow Creek\",\n          \"buildingNumber\": \"14316\",\n          \"city\": \"South Christina\",\n          \"zipcode\": \"08745-4080\",\n          \"country\": \"Svalbard & Jan Mayen\",\n          \"country_code\": \"SJ\",\n          \"latitude\": 45.46427,\n          \"longitude\": 9.18951\n        }\n      ],\n      \"website\": \"http://blick.biz\",\n      \"image\": \"http://placeimg.com/640/480/people\"\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ebf49fb2-6ff5-4f73-9865-088dae2cee33",
+      "name": "Images",
+      "description": {
+        "content": "Generate fake image references (titles, descriptions, URLs).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ac0575c2-fae3-4d2b-be3b-9d19a838a48f",
+          "name": "List Fake Images",
+          "request": {
+            "name": "List Fake Images",
+            "description": {
+              "content": "Return a collection of fake image references with a title, description, and placeholder URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "images"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                },
+                {
+                  "disabled": false,
+                  "key": "_type",
+                  "value": "<string>",
+                  "description": "Image category (people, business, nature, etc.) used in the placeholder URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "_width",
+                  "value": "<integer>",
+                  "description": "Placeholder image width in pixels."
+                },
+                {
+                  "disabled": false,
+                  "key": "_height",
+                  "value": "<integer>",
+                  "description": "Placeholder image height in pixels."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0609f43-b81b-46ed-a92a-e1befa3bfdf4",
+              "name": "A collection of fake images.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "images"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    },
+                    {
+                      "key": "_type",
+                      "value": "people"
+                    },
+                    {
+                      "key": "_width",
+                      "value": "640"
+                    },
+                    {
+                      "key": "_height",
+                      "value": "480"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"title\": \"Sunt unde delectus enim.\",\n      \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n      \"url\": \"https://picsum.photos/640/480\"\n    },\n    {\n      \"title\": \"Sunt unde delectus enim.\",\n      \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n      \"url\": \"https://picsum.photos/640/480\"\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a7b8cb8d-bf82-4e49-94bf-6eaa2ec93d82",
+      "name": "Persons",
+      "description": {
+        "content": "Generate fake person profiles with nested addresses.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa84a49c-a833-4fdc-b1e3-aecd6c8d077f",
+          "name": "List Fake Persons",
+          "request": {
+            "name": "List Fake Persons",
+            "description": {
+              "content": "Return a collection of fake person profiles with a nested address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "persons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                },
+                {
+                  "disabled": false,
+                  "key": "_gender",
+                  "value": "<string>",
+                  "description": "Restrict generated profiles to a single gender (`male` or `female`)."
+                },
+                {
+                  "disabled": false,
+                  "key": "_birthday_start",
+                  "value": "<date>",
+                  "description": "Earliest birthday (YYYY-MM-DD) to generate."
+                },
+                {
+                  "disabled": false,
+                  "key": "_birthday_end",
+                  "value": "<date>",
+                  "description": "Latest birthday (YYYY-MM-DD) to generate."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "525e1ea0-bb84-4317-928c-bb5b11b39b3b",
+              "name": "A collection of fake persons.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "persons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    },
+                    {
+                      "key": "_gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_birthday_start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_birthday_end",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"firstname\": \"Urban\",\n      \"lastname\": \"Donnelly\",\n      \"email\": \"urban.donnelly@example.org\",\n      \"phone\": \"+14252384998\",\n      \"birthday\": \"1985-04-12\",\n      \"gender\": \"male\",\n      \"website\": \"http://donnelly.example.com\",\n      \"image\": \"http://placeimg.com/640/480/people\",\n      \"address\": {\n        \"id\": 1,\n        \"street\": \"4546 Willms Run\",\n        \"streetName\": \"Trantow Creek\",\n        \"buildingNumber\": \"14316\",\n        \"city\": \"South Christina\",\n        \"zipcode\": \"08745-4080\",\n        \"country\": \"Svalbard & Jan Mayen\",\n        \"country_code\": \"SJ\",\n        \"latitude\": 45.46427,\n        \"longitude\": 9.18951\n      }\n    },\n    {\n      \"id\": 1,\n      \"firstname\": \"Urban\",\n      \"lastname\": \"Donnelly\",\n      \"email\": \"urban.donnelly@example.org\",\n      \"phone\": \"+14252384998\",\n      \"birthday\": \"1985-04-12\",\n      \"gender\": \"male\",\n      \"website\": \"http://donnelly.example.com\",\n      \"image\": \"http://placeimg.com/640/480/people\",\n      \"address\": {\n        \"id\": 1,\n        \"street\": \"4546 Willms Run\",\n        \"streetName\": \"Trantow Creek\",\n        \"buildingNumber\": \"14316\",\n        \"city\": \"South Christina\",\n        \"zipcode\": \"08745-4080\",\n        \"country\": \"Svalbard & Jan Mayen\",\n        \"country_code\": \"SJ\",\n        \"latitude\": 45.46427,\n        \"longitude\": 9.18951\n      }\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1228e31a-db72-46ba-85ce-1008ccc5370a",
+      "name": "Places",
+      "description": {
+        "content": "Generate fake geographic coordinates.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f83e52f-1ee8-419b-940a-b398231b6dcf",
+          "name": "List Fake Places",
+          "request": {
+            "name": "List Fake Places",
+            "description": {
+              "content": "Return a collection of fake geographic coordinates (latitude/longitude pairs).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "places"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "628aa7bf-c79f-496a-bc4c-8951527bce2a",
+              "name": "A collection of fake places.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"latitude\": 34.949545,\n      \"longitude\": 54.299718\n    },\n    {\n      \"latitude\": 34.949545,\n      \"longitude\": 54.299718\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "faa741c6-5cd9-437e-ae59-242da40d4668",
+      "name": "Products",
+      "description": {
+        "content": "Generate fake product records with images.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8659d6f2-ef4e-43f2-b20a-328694dcf4c9",
+          "name": "List Fake Products",
+          "request": {
+            "name": "List Fake Products",
+            "description": {
+              "content": "Return a collection of fake product records with nested image references.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                },
+                {
+                  "disabled": false,
+                  "key": "_categories_number",
+                  "value": "<integer>",
+                  "description": "Number of fake categories to attach to each product."
+                },
+                {
+                  "disabled": false,
+                  "key": "_taxes",
+                  "value": "<integer>",
+                  "description": "Apply a tax percentage to the generated price."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9573afba-62f9-4854-9b97-a07b84c05452",
+              "name": "A collection of fake products.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    },
+                    {
+                      "key": "_categories_number",
+                      "value": "2"
+                    },
+                    {
+                      "key": "_taxes",
+                      "value": "7"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Labore veniam quasi fugiat.\",\n      \"description\": \"Ducimus veniam aliquam rerum.\",\n      \"ean\": \"2227315600406\",\n      \"upc\": \"164094140922\",\n      \"image\": \"http://placeimg.com/640/480/tech\",\n      \"images\": [\n        {\n          \"title\": \"Sunt unde delectus enim.\",\n          \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n          \"url\": \"https://picsum.photos/640/480\"\n        },\n        {\n          \"title\": \"Sunt unde delectus enim.\",\n          \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n          \"url\": \"https://picsum.photos/640/480\"\n        }\n      ],\n      \"net_price\": \"19.99\",\n      \"taxes\": 7,\n      \"price\": \"21.39\",\n      \"categories\": [\n        \"Electronics\",\n        \"Accessories\"\n      ]\n    },\n    {\n      \"id\": 1,\n      \"name\": \"Labore veniam quasi fugiat.\",\n      \"description\": \"Ducimus veniam aliquam rerum.\",\n      \"ean\": \"2227315600406\",\n      \"upc\": \"164094140922\",\n      \"image\": \"http://placeimg.com/640/480/tech\",\n      \"images\": [\n        {\n          \"title\": \"Sunt unde delectus enim.\",\n          \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n          \"url\": \"https://picsum.photos/640/480\"\n        },\n        {\n          \"title\": \"Sunt unde delectus enim.\",\n          \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n          \"url\": \"https://picsum.photos/640/480\"\n        }\n      ],\n      \"net_price\": \"19.99\",\n      \"taxes\": 7,\n      \"price\": \"21.39\",\n      \"categories\": [\n        \"Electronics\",\n        \"Accessories\"\n      ]\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f0fe3b75-a3c4-4e9e-873a-50e08e753843",
+      "name": "Texts",
+      "description": {
+        "content": "Generate fake titled text blocks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78e7400c-c1da-4844-a9f3-2bb6e688d7c4",
+          "name": "List Fake Texts",
+          "request": {
+            "name": "List Fake Texts",
+            "description": {
+              "content": "Return a collection of fake titled text blocks (lorem-style content).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "texts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                },
+                {
+                  "disabled": false,
+                  "key": "_characters",
+                  "value": "<integer>",
+                  "description": "Maximum number of characters in each generated text block."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c99929a-68ec-4bef-b6fd-e723425370b7",
+              "name": "A collection of fake texts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "texts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    },
+                    {
+                      "key": "_characters",
+                      "value": "200"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"title\": \"Duchess; 'and the.\",\n      \"author\": \"Candido Wisozk\",\n      \"genre\": \"Dolores\",\n      \"content\": \"There are no mice in the chimney as she went on.\"\n    },\n    {\n      \"title\": \"Duchess; 'and the.\",\n      \"author\": \"Candido Wisozk\",\n      \"genre\": \"Dolores\",\n      \"content\": \"There are no mice in the chimney as she went on.\"\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2333ecf0-09d7-42a4-b994-19d79709f62a",
+      "name": "Users",
+      "description": {
+        "content": "Generate fake application user accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0660eb07-3279-4ffe-9992-9cb25c1ed117",
+          "name": "List Fake Users",
+          "request": {
+            "name": "List Fake Users",
+            "description": {
+              "content": "Return a collection of fake application user accounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                },
+                {
+                  "disabled": false,
+                  "key": "_gender",
+                  "value": "<string>",
+                  "description": "Restrict generated accounts to a single gender (`male` or `female`)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75be472f-9055-4c2e-9dbf-82b3115245ee",
+              "name": "A collection of fake users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    },
+                    {
+                      "key": "_gender",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"uuid\": \"e36e99b7-9bc4-3318-8ab5-98c34f6d4cd6\",\n      \"firstname\": \"Urban\",\n      \"lastname\": \"Donnelly\",\n      \"username\": \"ctreutel\",\n      \"password\": \"nLxG^d;zF!gSAHFHl\",\n      \"email\": \"rowena45@hotmail.com\",\n      \"ip\": \"33.219.15.137\",\n      \"macAddress\": \"34:CD:68:58:87:4B\",\n      \"website\": \"http://thiel.com\",\n      \"image\": \"http://placeimg.com/640/480/people\"\n    },\n    {\n      \"id\": 1,\n      \"uuid\": \"e36e99b7-9bc4-3318-8ab5-98c34f6d4cd6\",\n      \"firstname\": \"Urban\",\n      \"lastname\": \"Donnelly\",\n      \"username\": \"ctreutel\",\n      \"password\": \"nLxG^d;zF!gSAHFHl\",\n      \"email\": \"rowena45@hotmail.com\",\n      \"ip\": \"33.219.15.137\",\n      \"macAddress\": \"34:CD:68:58:87:4B\",\n      \"website\": \"http://thiel.com\",\n      \"image\": \"http://placeimg.com/640/480/people\"\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d0b9ee1c-220b-43b4-9b40-cdab0de7963d",
+      "name": "Custom",
+      "description": {
+        "content": "Generate fake records with a caller-defined field schema.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "61c5f455-5279-4c51-be33-2bce583ed2b5",
+          "name": "List Fake Custom Records",
+          "request": {
+            "name": "List Fake Custom Records",
+            "description": {
+              "content": "Generate records using a caller-defined field schema. Each extra query\nparameter is treated as a field name whose value is a FakerAPI generator\nidentifier (for example `name=name&email=email&phone=phoneNumber`).\nSupported generators include `name`, `firstName`, `lastName`,\n`userName`, `email`, `freeEmail`, `phoneNumber`, `password`, `md5`,\n`sha256`, `uuid`, `address`, `city`, `country`, `companyName`, `text`,\n`paragraph`, `date`, `dateTime`, `boolean`, `integer`, `randomNumber`,\n`imageUrl`, `color`, `emoji`, and more.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24f38f2b-737b-42ee-87c1-e616eb280615",
+              "name": "A collection of custom-shaped fake records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fakerapi.it/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "283c8d98-e129-4bcc-b979-202ee646d652",
+    "name": "FakerAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n\n\nContact Support:\n Name: Alessandro Pietrantonio",
+      "type": "text/plain"
+    }
+  }
+}
