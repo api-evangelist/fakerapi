@@ -80,25 +80,25 @@ apis:
         url: json-structure/fakerapi-text-structure.json
       - type: JSONStructure
         url: json-structure/fakerapi-user-structure.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-addresses-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-books-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-companies-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-custom-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-images-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-persons-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-places-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-products-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-texts-example.json
-      - type: Example
+      - type: Examples
         url: examples/fakerapi-list-users-example.json
 common:
   - type: Website
