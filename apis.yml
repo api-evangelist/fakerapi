@@ -101,6 +101,8 @@ apis:
       - type: Examples
         url: examples/fakerapi-list-users-example.json
 common:
+  - type: DomainSecurity
+    url: security/fakerapi-domain-security.yml
   - type: Website
     url: https://fakerapi.it/en
   - type: GitHubRepository
