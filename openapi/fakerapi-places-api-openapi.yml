@@ -1,0 +1,113 @@
+openapi: 3.0.3
+info:
+  title: Faker Addresses Places API
+  description: "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n"
+  version: 1.0.0
+  contact:
+    name: Alessandro Pietrantonio
+    url: https://fakerapi.it/en
+  license:
+    name: Open Source
+    url: https://github.com/pietrantonio91/faker-api
+servers:
+- url: https://fakerapi.it/api/v1
+  description: FakerAPI v1 (stable)
+tags:
+- name: Places
+  description: Generate fake geographic coordinates.
+paths:
+  /places:
+    get:
+      tags:
+      - Places
+      operationId: listPlaces
+      summary: List Fake Places
+      description: Return a collection of fake geographic coordinates (latitude/longitude pairs).
+      parameters:
+      - $ref: '#/components/parameters/Quantity'
+      - $ref: '#/components/parameters/Locale'
+      - $ref: '#/components/parameters/Seed'
+      responses:
+        '200':
+          description: A collection of fake places.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Place'
+components:
+  parameters:
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
+  schemas:
+    Envelope:
+      type: object
+      required:
+      - status
+      - code
+      - locale
+      - total
+      - data
+      properties:
+        status:
+          type: string
+          example: OK
+        code:
+          type: integer
+          example: 200
+        locale:
+          type: string
+          example: en_US
+        seed:
+          type: string
+          nullable: true
+          example: '42'
+        total:
+          type: integer
+          example: 10
+        data:
+          type: array
+          items:
+            type: object
+    Place:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+          example: 34.949545
+        longitude:
+          type: number
+          format: double
+          example: 54.299718

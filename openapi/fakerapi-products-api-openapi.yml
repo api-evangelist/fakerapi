@@ -1,0 +1,171 @@
+openapi: 3.0.3
+info:
+  title: Faker Addresses Products API
+  description: "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n"
+  version: 1.0.0
+  contact:
+    name: Alessandro Pietrantonio
+    url: https://fakerapi.it/en
+  license:
+    name: Open Source
+    url: https://github.com/pietrantonio91/faker-api
+servers:
+- url: https://fakerapi.it/api/v1
+  description: FakerAPI v1 (stable)
+tags:
+- name: Products
+  description: Generate fake product records with images.
+paths:
+  /products:
+    get:
+      tags:
+      - Products
+      operationId: listProducts
+      summary: List Fake Products
+      description: Return a collection of fake product records with nested image references.
+      parameters:
+      - $ref: '#/components/parameters/Quantity'
+      - $ref: '#/components/parameters/Locale'
+      - $ref: '#/components/parameters/Seed'
+      - name: _categories_number
+        in: query
+        required: false
+        description: Number of fake categories to attach to each product.
+        schema:
+          type: integer
+          example: 2
+      - name: _taxes
+        in: query
+        required: false
+        description: Apply a tax percentage to the generated price.
+        schema:
+          type: integer
+          example: 7
+      responses:
+        '200':
+          description: A collection of fake products.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Product'
+components:
+  parameters:
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
+  schemas:
+    Envelope:
+      type: object
+      required:
+      - status
+      - code
+      - locale
+      - total
+      - data
+      properties:
+        status:
+          type: string
+          example: OK
+        code:
+          type: integer
+          example: 200
+        locale:
+          type: string
+          example: en_US
+        seed:
+          type: string
+          nullable: true
+          example: '42'
+        total:
+          type: integer
+          example: 10
+        data:
+          type: array
+          items:
+            type: object
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Labore veniam quasi fugiat.
+        description:
+          type: string
+          example: Ducimus veniam aliquam rerum.
+        ean:
+          type: string
+          example: '2227315600406'
+        upc:
+          type: string
+          example: '164094140922'
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/640/480/tech
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        net_price:
+          type: string
+          example: '19.99'
+        taxes:
+          type: integer
+          example: 7
+        price:
+          type: string
+          example: '21.39'
+        categories:
+          type: array
+          items:
+            type: string
+          example:
+          - Electronics
+          - Accessories
+    Image:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Sunt unde delectus enim.
+        description:
+          type: string
+          example: Ut iusto et sit eaque et eum molestiae hic.
+        url:
+          type: string
+          format: uri
+          example: https://picsum.photos/640/480

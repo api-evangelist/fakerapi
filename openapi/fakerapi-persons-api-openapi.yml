@@ -1,0 +1,196 @@
+openapi: 3.0.3
+info:
+  title: Faker Addresses Persons API
+  description: "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n"
+  version: 1.0.0
+  contact:
+    name: Alessandro Pietrantonio
+    url: https://fakerapi.it/en
+  license:
+    name: Open Source
+    url: https://github.com/pietrantonio91/faker-api
+servers:
+- url: https://fakerapi.it/api/v1
+  description: FakerAPI v1 (stable)
+tags:
+- name: Persons
+  description: Generate fake person profiles with nested addresses.
+paths:
+  /persons:
+    get:
+      tags:
+      - Persons
+      operationId: listPersons
+      summary: List Fake Persons
+      description: Return a collection of fake person profiles with a nested address.
+      parameters:
+      - $ref: '#/components/parameters/Quantity'
+      - $ref: '#/components/parameters/Locale'
+      - $ref: '#/components/parameters/Seed'
+      - name: _gender
+        in: query
+        required: false
+        description: Restrict generated profiles to a single gender (`male` or `female`).
+        schema:
+          type: string
+          enum:
+          - male
+          - female
+      - name: _birthday_start
+        in: query
+        required: false
+        description: Earliest birthday (YYYY-MM-DD) to generate.
+        schema:
+          type: string
+          format: date
+      - name: _birthday_end
+        in: query
+        required: false
+        description: Latest birthday (YYYY-MM-DD) to generate.
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: A collection of fake persons.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Person'
+components:
+  parameters:
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
+  schemas:
+    Envelope:
+      type: object
+      required:
+      - status
+      - code
+      - locale
+      - total
+      - data
+      properties:
+        status:
+          type: string
+          example: OK
+        code:
+          type: integer
+          example: 200
+        locale:
+          type: string
+          example: en_US
+        seed:
+          type: string
+          nullable: true
+          example: '42'
+        total:
+          type: integer
+          example: 10
+        data:
+          type: array
+          items:
+            type: object
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        firstname:
+          type: string
+          example: Urban
+        lastname:
+          type: string
+          example: Donnelly
+        email:
+          type: string
+          format: email
+          example: urban.donnelly@example.org
+        phone:
+          type: string
+          example: '+14252384998'
+        birthday:
+          type: string
+          format: date
+          example: '1985-04-12'
+        gender:
+          type: string
+          example: male
+        website:
+          type: string
+          format: uri
+          example: http://donnelly.example.com
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/640/480/people
+        address:
+          $ref: '#/components/schemas/Address'
+    Address:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        street:
+          type: string
+          example: 4546 Willms Run
+        streetName:
+          type: string
+          example: Trantow Creek
+        buildingNumber:
+          type: string
+          example: '14316'
+        city:
+          type: string
+          example: South Christina
+        zipcode:
+          type: string
+          example: 08745-4080
+        country:
+          type: string
+          example: Svalbard & Jan Mayen
+        country_code:
+          type: string
+          example: SJ
+        latitude:
+          type: number
+          format: double
+          example: 45.46427
+        longitude:
+          type: number
+          format: double
+          example: 9.18951
