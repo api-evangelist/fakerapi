@@ -1,4 +1,16 @@
 aid: fakerapi
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fakerapi.png
 name: FakerAPI
 description: >-
   FakerAPI is a free, no-authentication REST API that returns realistic fake data for developers, designers, and QA
@@ -25,81 +37,726 @@ tags:
   - Open Source
   - Public APIs
 apis:
-  - name: FakerAPI
-    description: >-
-      Free, no-authentication REST API serving fake data across ten resource collections (addresses, books, companies,
-      images, persons, places, products, texts, users, custom). Every operation is a GET and shares the same response
-      envelope (status, code, locale, seed, total, data).
-    humanURL: https://fakerapi.it/en
-    baseURL: https://fakerapi.it/api/v1
-    tags:
-      - Test Data
-      - Fake Data
-    properties:
-      - type: Documentation
-        url: https://fakerapi.it/en
-      - type: OpenAPI
-        url: openapi/fakerapi-openapi.yml
-      - type: JSONSchema
-        url: json-schema/fakerapi-address-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-book-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-company-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-envelope-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-image-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-person-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-place-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-product-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-text-schema.json
-      - type: JSONSchema
-        url: json-schema/fakerapi-user-schema.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-address-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-book-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-company-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-envelope-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-image-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-person-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-place-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-product-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-text-structure.json
-      - type: JSONStructure
-        url: json-structure/fakerapi-user-structure.json
-      - type: Examples
-        url: examples/fakerapi-list-addresses-example.json
-      - type: Examples
-        url: examples/fakerapi-list-books-example.json
-      - type: Examples
-        url: examples/fakerapi-list-companies-example.json
-      - type: Examples
-        url: examples/fakerapi-list-custom-example.json
-      - type: Examples
-        url: examples/fakerapi-list-images-example.json
-      - type: Examples
-        url: examples/fakerapi-list-persons-example.json
-      - type: Examples
-        url: examples/fakerapi-list-places-example.json
-      - type: Examples
-        url: examples/fakerapi-list-products-example.json
-      - type: Examples
-        url: examples/fakerapi-list-texts-example.json
-      - type: Examples
-        url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-addresses-api
+  name: FakerAPI Addresses API
+  description: Generate fake postal addresses with geo coordinates.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Addresses
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-addresses-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-books-api
+  name: FakerAPI Books API
+  description: Generate fake book records.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Books
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-books-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-companies-api
+  name: FakerAPI Companies API
+  description: Generate fake business records.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Companies
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-companies-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-custom-api
+  name: FakerAPI Custom API
+  description: Generate fake records with a caller-defined field schema.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Custom
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-custom-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-images-api
+  name: FakerAPI Images API
+  description: Generate fake image references (titles, descriptions, URLs).
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-images-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-persons-api
+  name: FakerAPI Persons API
+  description: Generate fake person profiles with nested addresses.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Persons
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-persons-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-places-api
+  name: FakerAPI Places API
+  description: Generate fake geographic coordinates.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Places
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-places-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-products-api
+  name: FakerAPI Products API
+  description: Generate fake product records with images.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-products-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-texts-api
+  name: FakerAPI Texts API
+  description: Generate fake titled text blocks.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Texts
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-texts-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
+- aid: fakerapi:fakerapi-users-api
+  name: FakerAPI Users API
+  description: Generate fake application user accounts.
+  humanURL: https://fakerapi.it/en
+  baseURL: https://fakerapi.it/api/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/fakerapi-users-api-openapi.yml
+  - type: Documentation
+    url: https://fakerapi.it/en
+  - type: JSONSchema
+    url: json-schema/fakerapi-address-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-book-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-company-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-envelope-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-image-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-person-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-place-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-product-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-text-schema.json
+  - type: JSONSchema
+    url: json-schema/fakerapi-user-schema.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-address-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-book-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-company-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-envelope-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-image-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-person-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-place-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-product-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-text-structure.json
+  - type: JSONStructure
+    url: json-structure/fakerapi-user-structure.json
+  - type: Examples
+    url: examples/fakerapi-list-addresses-example.json
+  - type: Examples
+    url: examples/fakerapi-list-books-example.json
+  - type: Examples
+    url: examples/fakerapi-list-companies-example.json
+  - type: Examples
+    url: examples/fakerapi-list-custom-example.json
+  - type: Examples
+    url: examples/fakerapi-list-images-example.json
+  - type: Examples
+    url: examples/fakerapi-list-persons-example.json
+  - type: Examples
+    url: examples/fakerapi-list-places-example.json
+  - type: Examples
+    url: examples/fakerapi-list-products-example.json
+  - type: Examples
+    url: examples/fakerapi-list-texts-example.json
+  - type: Examples
+    url: examples/fakerapi-list-users-example.json
 common:
   - type: AgenticAccess
     url: agentic-access/fakerapi-agentic-access.yml
