@@ -1,0 +1,32 @@
+{
+  "provider": "fakerapi",
+  "sources": [
+    "fakerapi-addresses-api-openapi.yml",
+    "fakerapi-books-api-openapi.yml",
+    "fakerapi-companies-api-openapi.yml",
+    "fakerapi-custom-api-openapi.yml",
+    "fakerapi-images-api-openapi.yml",
+    "fakerapi-persons-api-openapi.yml",
+    "fakerapi-places-api-openapi.yml",
+    "fakerapi-products-api-openapi.yml",
+    "fakerapi-texts-api-openapi.yml",
+    "fakerapi-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "fakerapi-addresses-api-openapi.yml",
+    "fakerapi-books-api-openapi.yml",
+    "fakerapi-companies-api-openapi.yml",
+    "fakerapi-custom-api-openapi.yml",
+    "fakerapi-images-api-openapi.yml",
+    "fakerapi-persons-api-openapi.yml",
+    "fakerapi-places-api-openapi.yml",
+    "fakerapi-products-api-openapi.yml",
+    "fakerapi-texts-api-openapi.yml",
+    "fakerapi-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
