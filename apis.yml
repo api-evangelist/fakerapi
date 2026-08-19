@@ -21,7 +21,7 @@ description: >-
 url: https://github.com/pietrantonio91/faker-api
 humanURL: https://fakerapi.it/en
 baseURL: https://fakerapi.it/api/v1
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-05-28'
 modified: '2026-05-30'
 x-type: opensource
