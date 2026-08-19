@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Faker Addresses Images API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/images",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "_type",
+                "value": "",
+                "type": "query",
+                "description": "Image category (people, business, nature, etc.) used in the placeholder URL."
+              },
+              {
+                "name": "_width",
+                "value": "",
+                "type": "query",
+                "description": "Placeholder image width in pixels."
+              },
+              {
+                "name": "_height",
+                "value": "",
+                "type": "query",
+                "description": "Placeholder image height in pixels."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake image references with a title, description, and placeholder URL."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

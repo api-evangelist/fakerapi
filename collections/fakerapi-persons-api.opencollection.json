@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Faker Addresses Persons API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Persons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Persons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/persons",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "_gender",
+                "value": "",
+                "type": "query",
+                "description": "Restrict generated profiles to a single gender (`male` or `female`)."
+              },
+              {
+                "name": "_birthday_start",
+                "value": "",
+                "type": "query",
+                "description": "Earliest birthday (YYYY-MM-DD) to generate."
+              },
+              {
+                "name": "_birthday_end",
+                "value": "",
+                "type": "query",
+                "description": "Latest birthday (YYYY-MM-DD) to generate."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake person profiles with a nested address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

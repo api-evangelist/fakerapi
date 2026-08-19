@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "36f7a232-b829-489a-8832-42c58b535dc6",
+      "name": "Texts",
+      "description": {
+        "content": "Generate fake titled text blocks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6459de1c-4d66-465b-8ca4-77238ad446cd",
+          "name": "List Fake Texts",
+          "request": {
+            "name": "List Fake Texts",
+            "description": {
+              "content": "Return a collection of fake titled text blocks (lorem-style content).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "texts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                },
+                {
+                  "disabled": false,
+                  "key": "_characters",
+                  "value": "<integer>",
+                  "description": "Maximum number of characters in each generated text block."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "447438fa-0ef0-4bab-9d00-db01e430a2e3",
+              "name": "A collection of fake texts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "texts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    },
+                    {
+                      "key": "_characters",
+                      "value": "200"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"title\": \"Duchess; 'and the.\",\n      \"author\": \"Candido Wisozk\",\n      \"genre\": \"Dolores\",\n      \"content\": \"There are no mice in the chimney as she went on.\"\n    },\n    {\n      \"title\": \"Duchess; 'and the.\",\n      \"author\": \"Candido Wisozk\",\n      \"genre\": \"Dolores\",\n      \"content\": \"There are no mice in the chimney as she went on.\"\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fakerapi.it/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c25cadf0-2dcf-41b9-92be-d5a7e53d2e67",
+    "name": "Faker Addresses Texts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n\n\nContact Support:\n Name: Alessandro Pietrantonio",
+      "type": "text/plain"
+    }
+  }
+}

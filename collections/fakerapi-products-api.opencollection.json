@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Faker Addresses Products API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/products",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              },
+              {
+                "name": "_categories_number",
+                "value": "",
+                "type": "query",
+                "description": "Number of fake categories to attach to each product."
+              },
+              {
+                "name": "_taxes",
+                "value": "",
+                "type": "query",
+                "description": "Apply a tax percentage to the generated price."
+              }
+            ]
+          },
+          "docs": "Return a collection of fake product records with nested image references."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "1aa8923f-499f-41bf-8514-f907d630388c",
+      "name": "Books",
+      "description": {
+        "content": "Generate fake book records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "968a8906-e440-4ede-a692-7bd2820caabb",
+          "name": "List Fake Books",
+          "request": {
+            "name": "List Fake Books",
+            "description": {
+              "content": "Return a collection of fake book records (title, author, genre, ISBN, publisher).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "books"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4d978a7-ccc9-4248-b67c-084977c3981d",
+              "name": "A collection of fake books.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "books"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"title\": \"Mock Turtle in the.\",\n      \"author\": \"Gladyce Ortiz\",\n      \"genre\": \"Et\",\n      \"description\": \"Mock Turtle replied, counting off the fire, licking her paws and washing her face.\",\n      \"isbn\": \"9797826980333\",\n      \"image\": \"http://placeimg.com/480/640/any\",\n      \"published\": \"2003-10-05\",\n      \"publisher\": \"Optio Aut\"\n    },\n    {\n      \"id\": 1,\n      \"title\": \"Mock Turtle in the.\",\n      \"author\": \"Gladyce Ortiz\",\n      \"genre\": \"Et\",\n      \"description\": \"Mock Turtle replied, counting off the fire, licking her paws and washing her face.\",\n      \"isbn\": \"9797826980333\",\n      \"image\": \"http://placeimg.com/480/640/any\",\n      \"published\": \"2003-10-05\",\n      \"publisher\": \"Optio Aut\"\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fakerapi.it/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0cfdb66d-b7ff-425b-afa9-b21a2f7830c2",
+    "name": "Faker Addresses Books API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n\n\nContact Support:\n Name: Alessandro Pietrantonio",
+      "type": "text/plain"
+    }
+  }
+}

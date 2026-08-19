@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "db36f4b8-c0ed-4183-a196-139e830c66b6",
+      "name": "Products",
+      "description": {
+        "content": "Generate fake product records with images.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa41d266-86b5-4a0b-80ce-a83256d4b6a8",
+          "name": "List Fake Products",
+          "request": {
+            "name": "List Fake Products",
+            "description": {
+              "content": "Return a collection of fake product records with nested image references.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                },
+                {
+                  "disabled": false,
+                  "key": "_categories_number",
+                  "value": "<integer>",
+                  "description": "Number of fake categories to attach to each product."
+                },
+                {
+                  "disabled": false,
+                  "key": "_taxes",
+                  "value": "<integer>",
+                  "description": "Apply a tax percentage to the generated price."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "733f9d8f-930b-4c4f-a314-8ec09ddcc028",
+              "name": "A collection of fake products.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    },
+                    {
+                      "key": "_categories_number",
+                      "value": "2"
+                    },
+                    {
+                      "key": "_taxes",
+                      "value": "7"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Labore veniam quasi fugiat.\",\n      \"description\": \"Ducimus veniam aliquam rerum.\",\n      \"ean\": \"2227315600406\",\n      \"upc\": \"164094140922\",\n      \"image\": \"http://placeimg.com/640/480/tech\",\n      \"images\": [\n        {\n          \"title\": \"Sunt unde delectus enim.\",\n          \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n          \"url\": \"https://picsum.photos/640/480\"\n        },\n        {\n          \"title\": \"Sunt unde delectus enim.\",\n          \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n          \"url\": \"https://picsum.photos/640/480\"\n        }\n      ],\n      \"net_price\": \"19.99\",\n      \"taxes\": 7,\n      \"price\": \"21.39\",\n      \"categories\": [\n        \"Electronics\",\n        \"Accessories\"\n      ]\n    },\n    {\n      \"id\": 1,\n      \"name\": \"Labore veniam quasi fugiat.\",\n      \"description\": \"Ducimus veniam aliquam rerum.\",\n      \"ean\": \"2227315600406\",\n      \"upc\": \"164094140922\",\n      \"image\": \"http://placeimg.com/640/480/tech\",\n      \"images\": [\n        {\n          \"title\": \"Sunt unde delectus enim.\",\n          \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n          \"url\": \"https://picsum.photos/640/480\"\n        },\n        {\n          \"title\": \"Sunt unde delectus enim.\",\n          \"description\": \"Ut iusto et sit eaque et eum molestiae hic.\",\n          \"url\": \"https://picsum.photos/640/480\"\n        }\n      ],\n      \"net_price\": \"19.99\",\n      \"taxes\": 7,\n      \"price\": \"21.39\",\n      \"categories\": [\n        \"Electronics\",\n        \"Accessories\"\n      ]\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fakerapi.it/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "081041de-c301-43ed-9328-87ceade2bd70",
+    "name": "Faker Addresses Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n\n\nContact Support:\n Name: Alessandro Pietrantonio",
+      "type": "text/plain"
+    }
+  }
+}

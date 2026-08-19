@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Faker Addresses Custom API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Fake Custom Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakerapi.it/api/v1/custom",
+            "params": [
+              {
+                "name": "_quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to return (1-1000). Default 10."
+              },
+              {
+                "name": "_locale",
+                "value": "",
+                "type": "query",
+                "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+              },
+              {
+                "name": "_seed",
+                "value": "",
+                "type": "query",
+                "description": "Integer seed for deterministic, reproducible output."
+              }
+            ]
+          },
+          "docs": "Generate records using a caller-defined field schema. Each extra query\nparameter is treated as a field name whose value is a FakerAPI generator\nidentifier (for example `name=name&email=email&phone=phoneNumber`).\nSupported generators include `name`, `firstName`, `lastName`,\n`userName`, `email`, `freeEmail`, `phoneNumber`, `password`, `md5`,\n`sha256`, `uuid`, `address`, `city`, `country`, `companyName`, `text`,\n`paragraph`, `date`, `dateTime`, `boolean`, `integer`, `randomNumber`,\n`imageUrl`, `col"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

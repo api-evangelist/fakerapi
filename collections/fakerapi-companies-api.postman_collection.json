@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "bb01539f-9833-4637-bc7d-6062b9ae50e7",
+      "name": "Companies",
+      "description": {
+        "content": "Generate fake business records.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26093f1c-a91a-4150-bf52-9cebdfb376f4",
+          "name": "List Fake Companies",
+          "request": {
+            "name": "List Fake Companies",
+            "description": {
+              "content": "Return a collection of fake company records including nested addresses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81ab10d7-b806-4cde-8229-d3d7e82d4322",
+              "name": "A collection of fake companies.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Krajcik LLC\",\n      \"email\": \"wilbert14@satterfield.org\",\n      \"vat\": \"07027776643\",\n      \"phone\": \"+14252384998\",\n      \"country\": \"Belize\",\n      \"addresses\": [\n        {\n          \"id\": 1,\n          \"street\": \"4546 Willms Run\",\n          \"streetName\": \"Trantow Creek\",\n          \"buildingNumber\": \"14316\",\n          \"city\": \"South Christina\",\n          \"zipcode\": \"08745-4080\",\n          \"country\": \"Svalbard & Jan Mayen\",\n          \"country_code\": \"SJ\",\n          \"latitude\": 45.46427,\n          \"longitude\": 9.18951\n        },\n        {\n          \"id\": 1,\n          \"street\": \"4546 Willms Run\",\n          \"streetName\": \"Trantow Creek\",\n          \"buildingNumber\": \"14316\",\n          \"city\": \"South Christina\",\n          \"zipcode\": \"08745-4080\",\n          \"country\": \"Svalbard & Jan Mayen\",\n          \"country_code\": \"SJ\",\n          \"latitude\": 45.46427,\n          \"longitude\": 9.18951\n        }\n      ],\n      \"website\": \"http://blick.biz\",\n      \"image\": \"http://placeimg.com/640/480/people\"\n    },\n    {\n      \"id\": 1,\n      \"name\": \"Krajcik LLC\",\n      \"email\": \"wilbert14@satterfield.org\",\n      \"vat\": \"07027776643\",\n      \"phone\": \"+14252384998\",\n      \"country\": \"Belize\",\n      \"addresses\": [\n        {\n          \"id\": 1,\n          \"street\": \"4546 Willms Run\",\n          \"streetName\": \"Trantow Creek\",\n          \"buildingNumber\": \"14316\",\n          \"city\": \"South Christina\",\n          \"zipcode\": \"08745-4080\",\n          \"country\": \"Svalbard & Jan Mayen\",\n          \"country_code\": \"SJ\",\n          \"latitude\": 45.46427,\n          \"longitude\": 9.18951\n        },\n        {\n          \"id\": 1,\n          \"street\": \"4546 Willms Run\",\n          \"streetName\": \"Trantow Creek\",\n          \"buildingNumber\": \"14316\",\n          \"city\": \"South Christina\",\n          \"zipcode\": \"08745-4080\",\n          \"country\": \"Svalbard & Jan Mayen\",\n          \"country_code\": \"SJ\",\n          \"latitude\": 45.46427,\n          \"longitude\": 9.18951\n        }\n      ],\n      \"website\": \"http://blick.biz\",\n      \"image\": \"http://placeimg.com/640/480/people\"\n    }\n  ],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fakerapi.it/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a87fbb86-0c06-4bc5-ade3-99b1f3d01acc",
+    "name": "Faker Addresses Companies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n\n\nContact Support:\n Name: Alessandro Pietrantonio",
+      "type": "text/plain"
+    }
+  }
+}

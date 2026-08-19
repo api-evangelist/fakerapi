@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "d4d34c4c-5440-44f4-bf03-f5567d29998a",
+      "name": "Custom",
+      "description": {
+        "content": "Generate fake records with a caller-defined field schema.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b03558de-67c9-4ff7-9e24-00dc57f6f532",
+          "name": "List Fake Custom Records",
+          "request": {
+            "name": "List Fake Custom Records",
+            "description": {
+              "content": "Generate records using a caller-defined field schema. Each extra query\nparameter is treated as a field name whose value is a FakerAPI generator\nidentifier (for example `name=name&email=email&phone=phoneNumber`).\nSupported generators include `name`, `firstName`, `lastName`,\n`userName`, `email`, `freeEmail`, `phoneNumber`, `password`, `md5`,\n`sha256`, `uuid`, `address`, `city`, `country`, `companyName`, `text`,\n`paragraph`, `date`, `dateTime`, `boolean`, `integer`, `randomNumber`,\n`imageUrl`, `color`, `emoji`, and more.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "custom"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_quantity",
+                  "value": "10",
+                  "description": "Number of records to return (1-1000). Default 10."
+                },
+                {
+                  "disabled": false,
+                  "key": "_locale",
+                  "value": "en_US",
+                  "description": "Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`."
+                },
+                {
+                  "disabled": false,
+                  "key": "_seed",
+                  "value": "<integer>",
+                  "description": "Integer seed for deterministic, reproducible output."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1229bba-5177-4011-b3f1-a7be58eee181",
+              "name": "A collection of custom-shaped fake records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "custom"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_quantity",
+                      "value": "10"
+                    },
+                    {
+                      "key": "_locale",
+                      "value": "en_US"
+                    },
+                    {
+                      "key": "_seed",
+                      "value": "42"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"code\": 200,\n  \"locale\": \"en_US\",\n  \"total\": 10,\n  \"data\": [],\n  \"seed\": \"42\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fakerapi.it/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fa5dd99c-d55b-49c3-9ffd-dbec379c44a5",
+    "name": "Faker Addresses Custom API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "FakerAPI is a free, no-authentication REST API that returns realistic fake\ndata for developers, designers, and QA engineers. It is built on top of the\nPHP Faker library and exposes a single shape of GET endpoints for every\nresource: addresses, books, companies, images, persons, places, products,\ntexts, users, and a fully custom resource builder.\n\nEvery endpoint accepts the same three control parameters:\n  * `_quantity` (1-1000, default 10)\n  * `_locale` (60+ locales, default `en_US`)\n  * `_seed` (any integer, for reproducible payloads)\n\nAll responses share an identical envelope: `status`, `code`, `locale`,\n`seed`, `total`, and a `data` array of resource objects.\n\n\nContact Support:\n Name: Alessandro Pietrantonio",
+      "type": "text/plain"
+    }
+  }
+}
