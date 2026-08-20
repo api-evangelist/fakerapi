@@ -34,6 +34,13 @@ tags:
   - Fake Data
   - Mocking
   - Developer Tools
+  - Open-Source
+  - Public APIs
+tags_raw:
+  - Test Data
+  - Fake Data
+  - Mocking
+  - Developer Tools
   - Open Source
   - Public APIs
 apis:
@@ -331,6 +338,8 @@ apis:
   humanURL: https://fakerapi.it/en
   baseURL: https://fakerapi.it/api/v1
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
@@ -547,6 +556,8 @@ apis:
   humanURL: https://fakerapi.it/en
   baseURL: https://fakerapi.it/api/v1
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -691,6 +702,8 @@ apis:
   humanURL: https://fakerapi.it/en
   baseURL: https://fakerapi.it/api/v1
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
