@@ -1,16 +1,7 @@
 {
   "provider": "fakerapi",
   "sources": [
-    "fakerapi-addresses-api-openapi.yml",
-    "fakerapi-books-api-openapi.yml",
-    "fakerapi-companies-api-openapi.yml",
-    "fakerapi-custom-api-openapi.yml",
-    "fakerapi-images-api-openapi.yml",
-    "fakerapi-persons-api-openapi.yml",
-    "fakerapi-places-api-openapi.yml",
-    "fakerapi-products-api-openapi.yml",
-    "fakerapi-texts-api-openapi.yml",
-    "fakerapi-users-api-openapi.yml"
+    "_original/fakerapi-openapi.yml"
   ],
   "outputs": [
     "fakerapi-addresses-api-openapi.yml",
@@ -27,6 +18,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "fakerapi-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "fakerapi-addresses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-books-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-companies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-custom-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-persons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-places-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-texts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fakerapi-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
