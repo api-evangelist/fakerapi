@@ -52,21 +52,6 @@ paths:
                         $ref: '#/components/schemas/Text'
 components:
   schemas:
-    Text:
-      type: object
-      properties:
-        title:
-          type: string
-          example: Duchess; 'and the.
-        author:
-          type: string
-          example: Candido Wisozk
-        genre:
-          type: string
-          example: Dolores
-        content:
-          type: string
-          example: There are no mice in the chimney as she went on.
     Envelope:
       type: object
       required:
@@ -97,6 +82,21 @@ components:
           type: array
           items:
             type: object
+    Text:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Duchess; 'and the.
+        author:
+          type: string
+          example: Candido Wisozk
+        genre:
+          type: string
+          example: Dolores
+        content:
+          type: string
+          example: There are no mice in the chimney as she went on.
   parameters:
     Seed:
       name: _seed

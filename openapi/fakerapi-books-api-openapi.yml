@@ -45,6 +45,36 @@ paths:
                         $ref: '#/components/schemas/Book'
 components:
   schemas:
+    Envelope:
+      type: object
+      required:
+      - status
+      - code
+      - locale
+      - total
+      - data
+      properties:
+        status:
+          type: string
+          example: OK
+        code:
+          type: integer
+          example: 200
+        locale:
+          type: string
+          example: en_US
+        seed:
+          type:
+          - string
+          - 'null'
+          example: '42'
+        total:
+          type: integer
+          example: 10
+        data:
+          type: array
+          items:
+            type: object
     Book:
       type: object
       properties:
@@ -77,36 +107,6 @@ components:
         publisher:
           type: string
           example: Optio Aut
-    Envelope:
-      type: object
-      required:
-      - status
-      - code
-      - locale
-      - total
-      - data
-      properties:
-        status:
-          type: string
-          example: OK
-        code:
-          type: integer
-          example: 200
-        locale:
-          type: string
-          example: en_US
-        seed:
-          type:
-          - string
-          - 'null'
-          example: '42'
-        total:
-          type: integer
-          example: 10
-        data:
-          type: array
-          items:
-            type: object
   parameters:
     Seed:
       name: _seed
@@ -116,15 +116,6 @@ components:
       schema:
         type: integer
         example: 42
-    Locale:
-      name: _locale
-      in: query
-      required: false
-      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
-      schema:
-        type: string
-        default: en_US
-        example: en_US
     Quantity:
       name: _quantity
       in: query
@@ -135,3 +126,12 @@ components:
         minimum: 1
         maximum: 1000
         default: 10
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US

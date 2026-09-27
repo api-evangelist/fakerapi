@@ -68,42 +68,6 @@ paths:
                         $ref: '#/components/schemas/Person'
 components:
   schemas:
-    Person:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-        firstname:
-          type: string
-          example: Urban
-        lastname:
-          type: string
-          example: Donnelly
-        email:
-          type: string
-          format: email
-          example: urban.donnelly@example.org
-        phone:
-          type: string
-          example: '+14252384998'
-        birthday:
-          type: string
-          format: date
-          example: '1985-04-12'
-        gender:
-          type: string
-          example: male
-        website:
-          type: string
-          format: uri
-          example: http://donnelly.example.com
-        image:
-          type: string
-          format: uri
-          example: http://placeimg.com/640/480/people
-        address:
-          $ref: '#/components/schemas/Address'
     Envelope:
       type: object
       required:
@@ -169,6 +133,42 @@ components:
           type: number
           format: double
           example: 9.18951
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        firstname:
+          type: string
+          example: Urban
+        lastname:
+          type: string
+          example: Donnelly
+        email:
+          type: string
+          format: email
+          example: urban.donnelly@example.org
+        phone:
+          type: string
+          example: '+14252384998'
+        birthday:
+          type: string
+          format: date
+          example: '1985-04-12'
+        gender:
+          type: string
+          example: male
+        website:
+          type: string
+          format: uri
+          example: http://donnelly.example.com
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/640/480/people
+        address:
+          $ref: '#/components/schemas/Address'
   parameters:
     Seed:
       name: _seed

@@ -46,7 +46,7 @@ tags:
   - Fake Data
   - Mocking
   - Developer Tools
-  - Open-Source
+  - Open Source
   - Public APIs
 tags_raw:
   - Test Data
@@ -55,6 +55,7 @@ tags_raw:
   - Developer Tools
   - Open Source
   - Public APIs
+  - Open-Source
 apis:
 - aid: fakerapi:fakerapi-addresses-api
   name: FakerAPI Addresses API
