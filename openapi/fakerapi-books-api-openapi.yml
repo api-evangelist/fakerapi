@@ -108,6 +108,15 @@ components:
           type: string
           example: Optio Aut
   parameters:
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
     Seed:
       name: _seed
       in: query
@@ -126,12 +135,3 @@ components:
         minimum: 1
         maximum: 1000
         default: 10
-    Locale:
-      name: _locale
-      in: query
-      required: false
-      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
-      schema:
-        type: string
-        default: en_US
-        example: en_US

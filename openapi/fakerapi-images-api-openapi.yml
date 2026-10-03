@@ -66,19 +66,6 @@ paths:
                         $ref: '#/components/schemas/Image'
 components:
   schemas:
-    Image:
-      type: object
-      properties:
-        title:
-          type: string
-          example: Sunt unde delectus enim.
-        description:
-          type: string
-          example: Ut iusto et sit eaque et eum molestiae hic.
-        url:
-          type: string
-          format: uri
-          example: https://picsum.photos/640/480
     Envelope:
       type: object
       required:
@@ -109,15 +96,20 @@ components:
           type: array
           items:
             type: object
+    Image:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Sunt unde delectus enim.
+        description:
+          type: string
+          example: Ut iusto et sit eaque et eum molestiae hic.
+        url:
+          type: string
+          format: uri
+          example: https://picsum.photos/640/480
   parameters:
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
     Locale:
       name: _locale
       in: query
@@ -127,6 +119,14 @@ components:
         type: string
         default: en_US
         example: en_US
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
     Quantity:
       name: _quantity
       in: query

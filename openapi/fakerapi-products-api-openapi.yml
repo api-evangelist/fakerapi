@@ -58,7 +58,77 @@ paths:
                       items:
                         $ref: '#/components/schemas/Product'
 components:
+  parameters:
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
   schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Labore veniam quasi fugiat.
+        description:
+          type: string
+          example: Ducimus veniam aliquam rerum.
+        ean:
+          type: string
+          example: '2227315600406'
+        upc:
+          type: string
+          example: '164094140922'
+        image:
+          type: string
+          format: uri
+          example: http://placeimg.com/640/480/tech
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+        net_price:
+          type: string
+          example: '19.99'
+        taxes:
+          type: integer
+          example: 7
+        price:
+          type: string
+          example: '21.39'
+        categories:
+          type: array
+          items:
+            type: string
+          example:
+          - Electronics
+          - Accessories
     Image:
       type: object
       properties:
@@ -102,73 +172,3 @@ components:
           type: array
           items:
             type: object
-    Product:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-        name:
-          type: string
-          example: Labore veniam quasi fugiat.
-        description:
-          type: string
-          example: Ducimus veniam aliquam rerum.
-        ean:
-          type: string
-          example: '2227315600406'
-        upc:
-          type: string
-          example: '164094140922'
-        image:
-          type: string
-          format: uri
-          example: http://placeimg.com/640/480/tech
-        images:
-          type: array
-          items:
-            $ref: '#/components/schemas/Image'
-        net_price:
-          type: string
-          example: '19.99'
-        taxes:
-          type: integer
-          example: 7
-        price:
-          type: string
-          example: '21.39'
-        categories:
-          type: array
-          items:
-            type: string
-          example:
-          - Electronics
-          - Accessories
-  parameters:
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
-    Locale:
-      name: _locale
-      in: query
-      required: false
-      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
-      schema:
-        type: string
-        default: en_US
-        example: en_US
-    Quantity:
-      name: _quantity
-      in: query
-      required: false
-      description: Number of records to return (1-1000). Default 10.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
-        default: 10

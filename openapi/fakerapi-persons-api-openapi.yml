@@ -67,37 +67,35 @@ paths:
                       items:
                         $ref: '#/components/schemas/Person'
 components:
+  parameters:
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
   schemas:
-    Envelope:
-      type: object
-      required:
-      - status
-      - code
-      - locale
-      - total
-      - data
-      properties:
-        status:
-          type: string
-          example: OK
-        code:
-          type: integer
-          example: 200
-        locale:
-          type: string
-          example: en_US
-        seed:
-          type:
-          - string
-          - 'null'
-          example: '42'
-        total:
-          type: integer
-          example: 10
-        data:
-          type: array
-          items:
-            type: object
     Address:
       type: object
       properties:
@@ -169,31 +167,33 @@ components:
           example: http://placeimg.com/640/480/people
         address:
           $ref: '#/components/schemas/Address'
-  parameters:
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
-    Locale:
-      name: _locale
-      in: query
-      required: false
-      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
-      schema:
-        type: string
-        default: en_US
-        example: en_US
-    Quantity:
-      name: _quantity
-      in: query
-      required: false
-      description: Number of records to return (1-1000). Default 10.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
-        default: 10
+    Envelope:
+      type: object
+      required:
+      - status
+      - code
+      - locale
+      - total
+      - data
+      properties:
+        status:
+          type: string
+          example: OK
+        code:
+          type: integer
+          example: 200
+        locale:
+          type: string
+          example: en_US
+        seed:
+          type:
+          - string
+          - 'null'
+          example: '42'
+        total:
+          type: integer
+          example: 10
+        data:
+          type: array
+          items:
+            type: object

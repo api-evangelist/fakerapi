@@ -98,14 +98,6 @@ components:
           type: string
           example: There are no mice in the chimney as she went on.
   parameters:
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
     Locale:
       name: _locale
       in: query
@@ -115,6 +107,14 @@ components:
         type: string
         default: en_US
         example: en_US
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
     Quantity:
       name: _quantity
       in: query

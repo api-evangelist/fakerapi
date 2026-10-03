@@ -44,7 +44,70 @@ paths:
                       items:
                         $ref: '#/components/schemas/Company'
 components:
+  parameters:
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
   schemas:
+    Address:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        street:
+          type: string
+          example: 4546 Willms Run
+        streetName:
+          type: string
+          example: Trantow Creek
+        buildingNumber:
+          type: string
+          example: '14316'
+        city:
+          type: string
+          example: South Christina
+        zipcode:
+          type: string
+          example: 08745-4080
+        country:
+          type: string
+          example: Svalbard & Jan Mayen
+        country_code:
+          type: string
+          example: SJ
+        latitude:
+          type: number
+          format: double
+          example: 45.46427
+        longitude:
+          type: number
+          format: double
+          example: 9.18951
     Company:
       type: object
       properties:
@@ -109,66 +172,3 @@ components:
           type: array
           items:
             type: object
-    Address:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-        street:
-          type: string
-          example: 4546 Willms Run
-        streetName:
-          type: string
-          example: Trantow Creek
-        buildingNumber:
-          type: string
-          example: '14316'
-        city:
-          type: string
-          example: South Christina
-        zipcode:
-          type: string
-          example: 08745-4080
-        country:
-          type: string
-          example: Svalbard & Jan Mayen
-        country_code:
-          type: string
-          example: SJ
-        latitude:
-          type: number
-          format: double
-          example: 45.46427
-        longitude:
-          type: number
-          format: double
-          example: 9.18951
-  parameters:
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
-    Locale:
-      name: _locale
-      in: query
-      required: false
-      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
-      schema:
-        type: string
-        default: en_US
-        example: en_US
-    Quantity:
-      name: _quantity
-      in: query
-      required: false
-      description: Number of records to return (1-1000). Default 10.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
-        default: 10
