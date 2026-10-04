@@ -58,34 +58,6 @@ paths:
                       items:
                         $ref: '#/components/schemas/Product'
 components:
-  parameters:
-    Quantity:
-      name: _quantity
-      in: query
-      required: false
-      description: Number of records to return (1-1000). Default 10.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
-        default: 10
-    Locale:
-      name: _locale
-      in: query
-      required: false
-      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
-      schema:
-        type: string
-        default: en_US
-        example: en_US
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
   schemas:
     Product:
       type: object
@@ -129,19 +101,6 @@ components:
           example:
           - Electronics
           - Accessories
-    Image:
-      type: object
-      properties:
-        title:
-          type: string
-          example: Sunt unde delectus enim.
-        description:
-          type: string
-          example: Ut iusto et sit eaque et eum molestiae hic.
-        url:
-          type: string
-          format: uri
-          example: https://picsum.photos/640/480
     Envelope:
       type: object
       required:
@@ -172,3 +131,44 @@ components:
           type: array
           items:
             type: object
+    Image:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Sunt unde delectus enim.
+        description:
+          type: string
+          example: Ut iusto et sit eaque et eum molestiae hic.
+        url:
+          type: string
+          format: uri
+          example: https://picsum.photos/640/480
+  parameters:
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10

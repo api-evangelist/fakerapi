@@ -44,6 +44,34 @@ paths:
                       items:
                         $ref: '#/components/schemas/Book'
 components:
+  parameters:
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Quantity:
+      name: _quantity
+      in: query
+      required: false
+      description: Number of records to return (1-1000). Default 10.
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 10
   schemas:
     Envelope:
       type: object
@@ -107,31 +135,3 @@ components:
         publisher:
           type: string
           example: Optio Aut
-  parameters:
-    Locale:
-      name: _locale
-      in: query
-      required: false
-      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
-      schema:
-        type: string
-        default: en_US
-        example: en_US
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
-    Quantity:
-      name: _quantity
-      in: query
-      required: false
-      description: Number of records to return (1-1000). Default 10.
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 1000
-        default: 10

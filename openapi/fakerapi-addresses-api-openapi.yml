@@ -52,36 +52,6 @@ paths:
                         $ref: '#/components/schemas/Address'
 components:
   schemas:
-    Envelope:
-      type: object
-      required:
-      - status
-      - code
-      - locale
-      - total
-      - data
-      properties:
-        status:
-          type: string
-          example: OK
-        code:
-          type: integer
-          example: 200
-        locale:
-          type: string
-          example: en_US
-        seed:
-          type:
-          - string
-          - 'null'
-          example: '42'
-        total:
-          type: integer
-          example: 10
-        data:
-          type: array
-          items:
-            type: object
     Address:
       type: object
       properties:
@@ -117,7 +87,45 @@ components:
           type: number
           format: double
           example: 9.18951
+    Envelope:
+      type: object
+      required:
+      - status
+      - code
+      - locale
+      - total
+      - data
+      properties:
+        status:
+          type: string
+          example: OK
+        code:
+          type: integer
+          example: 200
+        locale:
+          type: string
+          example: en_US
+        seed:
+          type:
+          - string
+          - 'null'
+          example: '42'
+        total:
+          type: integer
+          example: 10
+        data:
+          type: array
+          items:
+            type: object
   parameters:
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
     Locale:
       name: _locale
       in: query
@@ -127,14 +135,6 @@ components:
         type: string
         default: en_US
         example: en_US
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
     Quantity:
       name: _quantity
       in: query
