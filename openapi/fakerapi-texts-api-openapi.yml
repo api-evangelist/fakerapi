@@ -52,21 +52,6 @@ paths:
                         $ref: '#/components/schemas/Text'
 components:
   schemas:
-    Text:
-      type: object
-      properties:
-        title:
-          type: string
-          example: Duchess; 'and the.
-        author:
-          type: string
-          example: Candido Wisozk
-        genre:
-          type: string
-          example: Dolores
-        content:
-          type: string
-          example: There are no mice in the chimney as she went on.
     Envelope:
       type: object
       required:
@@ -97,24 +82,22 @@ components:
           type: array
           items:
             type: object
+    Text:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Duchess; 'and the.
+        author:
+          type: string
+          example: Candido Wisozk
+        genre:
+          type: string
+          example: Dolores
+        content:
+          type: string
+          example: There are no mice in the chimney as she went on.
   parameters:
-    Seed:
-      name: _seed
-      in: query
-      required: false
-      description: Integer seed for deterministic, reproducible output.
-      schema:
-        type: integer
-        example: 42
-    Locale:
-      name: _locale
-      in: query
-      required: false
-      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
-      schema:
-        type: string
-        default: en_US
-        example: en_US
     Quantity:
       name: _quantity
       in: query
@@ -125,3 +108,20 @@ components:
         minimum: 1
         maximum: 1000
         default: 10
+    Locale:
+      name: _locale
+      in: query
+      required: false
+      description: Locale code controlling language/region of generated data (e.g. `en_US`, `fr_FR`, `it_IT`). Default `en_US`.
+      schema:
+        type: string
+        default: en_US
+        example: en_US
+    Seed:
+      name: _seed
+      in: query
+      required: false
+      description: Integer seed for deterministic, reproducible output.
+      schema:
+        type: integer
+        example: 42
